@@ -1,88 +1,91 @@
-# RiskEngine - Simulatore di Battaglie Stile Risk
+# Battle Simulator — Risk-style Battle Engine
 
-Un motore di simulazione di battaglie ispirato al famoso gioco di strategia **Risk**, sviluppato in C++ per esercitarsi con concetti di Programmazione Orientata a Oggetti, STL e logica di gioco.
+A battle simulation engine inspired by the board game **Risk**, built in C++ to practice Object-Oriented Programming, STL.
 
-## Struttura del Progetto
+This is a training module of [risiko-engine](../../), built as a stepping stone toward the full probabilistic engine.
 
-```
-RiskEngine/
-├── include/           # File header (dichiarazioni delle classi)
-│   ├── Army.hpp       # Dichiarazione classe Army
-│   ├── Battle.hpp     # Dichiarazione classe Battle
-│   └── Dadi.hpp       # Dichiarazione classe Dadi
-├── src/              # File source (implementazioni)
-│   ├── Army.cpp       # Implementazione classe Army
-│   ├── Battle.cpp     # Implementazione classe Battle
-│   └── Dadi.cpp       # Implementazione classe Dadi
-├── main.cpp          # Punto di ingresso del programma
-└── main              # Eseguibile compilato
-```
+## Project Structure
 
-## Classi Principale
+battle-simulator/
+├── include/ # Header files (class declarations)
+│ ├── Army.hpp
+│ ├── Battle.hpp
+│ ├── Dadi.hpp
+├── src/ # Source files (implementations)
+│ ├── Army.cpp
+│ ├── Battle.cpp
+│ ├── Dadi.cpp
+├── main.cpp # Program entry point
+└── main # Compiled executable
+
+
+## Core Classes
 
 ### Army (`Army.hpp` / `Army.cpp`)
-Rappresenta un esercito con le seguenti proprietà:
-- **player**: nome del giocatore
-- **tanks**: numero di unità operative
-- **territori**: vettore di territori controllati
+Represents an army with the following properties:
+- **player**: player name
+- **tanks**: number of active units
+- **territori**: vector of controlled territories
 
-**Metodi principali:**
-- `getPlayer()`, `getTanks()`, `getNumberTerritori()` - Getter
-- `updateTanks(int)` - Aggiorna il numero di unità
-- `updateTerritori(string)` - Aggiunge un territorio
-
-### Battle (`Battle.hpp` / `Battle.cpp`)
-Gestisce la logica di battaglia tra due eserciti.
-- **Simulazione**: Tira i dadi per entrambi gli eserciti
-- **Confronto**: I valori vengono ordinati in ordine decrescente e confrontati
-- **Vincitore**: L'esercito con più unità sopravvissute vince il confronto
+**Main methods:**
+- `getPlayer()`, `getTanks()`, `getNumberTerritori()` — getters
+- `updateTanks(int)` — updates unit count
+- `updateTerritori(string)` — adds a territory
 
 ### Dadi (`Dadi.hpp` / `Dadi.cpp`)
-Gestisce il lancio dei dadi a casa con:
-- **faces**: numero di facce del dado (default: 6)
-- **multiply**: quantità di dadi da tirare
-- **Tira()**: genera numeri casuali distribuiti uniformemente
+Handles dice rolling with:
+- **faces**: number of faces per die (default: 6)
+- **multiply**: how many dice to roll
+- **Tira()**: generates uniformly distributed random results using `std::random_device` and `std::mt19937`
 
-## Meccanica di Gioco (Ispirata a Risk)
+### Battle (`Battle.hpp` / `Battle.cpp`)
+Resolves a single combat round between two armies:
+- Rolls dice for both attacker and defender
+- Sorts results in descending order
+- Compares values pairwise (up to `min(attacker dice, defender dice)` comparisons)
+- Updates unit losses on both sides based on Risk combat rules
 
-1. **Lancio Dadi**: Ogni esercito tira un numero configurabile di dadi
-2. **Ordinamento**: I risultati vengono ordinati in ordine decrescente
-3. **Confronto**: I valori vengono confrontati coppia per coppia (massimo 3 confronti per round)
-4. **Perdite**: 
-   - Se il valore dell'attaccante è **maggiore** del difensore → vince l'attaccante
-   - Se il valore del difensore è **maggiore o uguale** → vince il difensore
-5. **Risultato**: Vengono aggiornate le unità perse e si determina il vincitore del round
 
-## Compilazione
+## Game Mechanics (Inspired by Risk)
+
+1. **Dice roll**: each army rolls a configurable number of dice (attacker: 3, defender: 2)
+2. **Sorting**: results are sorted in descending order
+3. **Comparison**: values are compared pairwise, one comparison per matched die
+4. **Losses**:
+   - If the attacker's value is **strictly greater** than the defender's → defender loses a unit
+   - If the defender's value is **greater or equal** → attacker loses a unit (defender wins ties)
+5. **Round result**: losses are applied to both armies; the process repeats until one army reaches zero tanks
+
+## Build
 
 ```bash
-# Compilazione con g++
-g++ -std=c++17 -o main main.cpp src/Army.cpp src/Battle.cpp src/Dadi.cpp
+ g++ include/*.hpp src/*.cpp main.cpp -o main -std=c++17 
 
-# Esecuzione
 ./main
 ```
 
-## Esempio di Uso
+## Usage Example
 
 ```cpp
-Army esercito1("Nero", 30, 0);   // 30 unità per giocatore Nero
-Army esercito2("Rosso", 20, 0);  // 20 unità per giocatore Rosso
+Army esercito1("Nero", 10, 0);
+Army esercito2("Rosso", 10, 0);
 
-Battle battle(esercito1, esercito2);
-std::string winner = battle.simulaRound();
-// Output: messaggi con i risultati dei dadi e le perdite
+MonteCarlo simulatore(esercito1, esercito2, 10000);
+simulatore.RunnaSimulazioni();
+simulatore.PrintStats();
+
+// Output:
+// Il player Nero ( l'attaccante ) ha vinto il 18% delle volte
+// Il player Rosso ( il difensore ) ha vinto il 82% delle volte
 ```
 
-## Note Tecniche
+## Technical Notes
 
-- **Librerie utilizzate**: `<iostream>`, `<vector>`, `<algorithm>`, `<random>`
-- **Pattern utilizzati**: Programmazione Orientata a Oggetti, incapsulamento
-- **Random**: Utilizza `std::random_device` e `std::mt19937` per generazione casuale
+- **Libraries used**: `<iostream>`, `<vector>`, `<algorithm>`, `<random>`, `<map>`, `<chrono>`
+- **Patterns used**: Object-Oriented Programming, encapsulation, composition
+- **Random**: `std::random_device` + `std::mt19937`.
 
-## Possibili Miglioramenti
 
-1. Aggiungere log di battaglie multiple
-2. Implementare verifica delle condizioni di vittoria
-3. Aggiungere interfaccia utente
-4. Espandere la gestione dei territori e delle conquiste
+## License
+
+MIT

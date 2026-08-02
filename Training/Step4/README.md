@@ -123,6 +123,8 @@ Tempo totale impiegato: 2456 ms
 
 4. **Monte Carlo Methodology**: Uses statistical sampling to estimate battle probabilities for arbitrary army sizes
 
+5. **The game engine assumes that each player always attacks with the maximum number of dice available**
+
 ## Dependencies
 
 - C++17 or later

@@ -14,28 +14,22 @@ Battle::Battle(Army att, Army dif) : esercito1(att), esercito2(dif), dadoAtk(6,3
 std::string Battle::simulaRound()
 {
     std::string winner;
+    // Gestione numero dadi, ricalcolato ad ogni turno in base ai carri
+    int diceAtk = std::min(3, esercito1.getTanks() - 1);
+    int diceDif = std::min(3, esercito2.getTanks());
+
+    dadoAtk.setMultiply(diceAtk);
+    dadoDif.setMultiply(diceDif);
     int atkLoses = 0, difLoses = 0;
 
     std::vector vecAtk = dadoAtk.Tira();
     std::vector vecDif = dadoDif.Tira();
-/*
-    std::cout << "Risultati dadi attaccante:" << std::endl;
-    for (int n : vecAtk)
-    {
-        std::cout << n << " ";
-    }
-    std::cout << "\nRisultati dadi difensore:" << std::endl;
-    for (int n : vecDif)
-    {
-        std::cout << n << " ";
-    }
-    */
+
  
     // ordinamento vettori
     std::sort(vecAtk.begin(), vecAtk.end(), [](int a, int b) { return a > b; });
     std::sort(vecDif.begin(), vecDif.end(), [](int a, int b) { return a > b; });
 
-    //std::cout << "\n\nVettori ordinati e pronti per il confronto " << std::endl;
 
     std::cout << "Attaccante:" << std::endl;
     for (int n : vecAtk)

@@ -8,7 +8,7 @@
 #include "../include/Dadi.hpp"
 #include "../include/MonteCarlo.hpp"
 
-#define MS 500
+#define MS 250
 
 MonteCarlo::MonteCarlo(Army atk, Army dif, int n) : esercito1(atk), esercito2(dif), sims(n), startTime(std::chrono::steady_clock::now()) {};
 
@@ -20,7 +20,7 @@ std::string MonteCarlo::SimulaBattle()
 
     Battle battle(atkCopy, difCopy);
 
-    while (battle.getAtkTanks() > 0 && battle.getDifTanks() > 0)
+    while ((battle.getAtkTanks() -1) > 0 && battle.getDifTanks() > 0)
     {
         std::cout << "\n============== inizio parita N " << i << "==============" << std::endl;
         std::string winnerRound = battle.simulaRound();

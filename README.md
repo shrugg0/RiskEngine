@@ -1,10 +1,10 @@
-# risiko-engine
+# RiskEngine
 
 A probabilistic engine for the board game Risk, built to estimate win probabilities and suggest optimal moves through large-scale simulation.
 
 Given full board state — players, territories, tanks per territory, assigned objectives, and enemy troop movements — the engine runs thousands of simulations using the **Monte Carlo method** to estimate each player's probability of winning.
 
-> ⚠️ **Status**: early development. The core engine is not yet implemented. See [Roadmap](#roadmap) below.
+> **Status**: early development. The core engine is not yet implemented. See [Roadmap](#roadmap) below.
 
 ---
 

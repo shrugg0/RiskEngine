@@ -59,7 +59,7 @@ Resolves a single combat round between two armies:
 ## Build
 
 ```bash
- g++ include/*.hpp src/*.cpp main.cpp -o main -std=c++17 
+g++ include/*.hpp src/*.cpp main.cpp -o main -std=c++17 
 
 ./main
 ```

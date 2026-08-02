@@ -69,7 +69,7 @@ Orchestrates multiple simulations:
 ## Compilation
 
 ```bash
-g++ -g -std=c++17 main.cpp src/Army.cpp src/Battle.cpp src/Dadi.cpp src/MonteCarlo.cpp -o monte_carlo_engine
+g++ include/*.hpp src/*.cpp main.cpp -o main -std=c++17 
 ```
 
 ## Usage

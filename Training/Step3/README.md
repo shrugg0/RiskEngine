@@ -84,6 +84,7 @@ simulatore.PrintStats();
 - **Libraries used**: `<iostream>`, `<vector>`, `<algorithm>`, `<random>`, `<map>`, `<chrono>`
 - **Patterns used**: Object-Oriented Programming, encapsulation, composition
 - **Random**: `std::random_device` + `std::mt19937`.
+- **The game engine assumes that each player always attacks with the maximum number of dice available**
 
 
 ## License

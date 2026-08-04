@@ -11,12 +11,20 @@
 class Board
 {
 private:
+    std::string fileName;
     std::map<std::string, std::vector<std::string>>  adjList;
     std::ifstream datiBoard;
+    std::string trim(std::string s);
 public:
     Board(const std::string& filename);
+
     void loadData();
-    void getVicini(const std::string& state, std::vector<std::string>& vicini);
+
+    std::vector<std::string> getVicini(const std::string& state);
+
+    void printBoard();
+
+    void printVicini(const std::string &state);
 };
 
 

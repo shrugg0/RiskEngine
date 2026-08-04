@@ -7,12 +7,10 @@ Quebec: Ontario, Greenland, Eastern US
 Western US: Alberta, Ontario, Eastern US, Central America
 Eastern US: Western US, Ontario, Quebec, Central America
 Central America: Western US, Eastern US, Venezuela
-
 Venezuela: Central America, Brazil, Peru
 Peru: Venezuela, Brazil, Argentina
 Brazil: Venezuela, Peru, Argentina, North Africa
 Argentina: Peru, Brazil
-
 Iceland: Greenland, Great Britain, Scandinavia
 Great Britain: Iceland, Scandinavia, Northern Europe, Western Europe
 Scandinavia: Iceland, Great Britain, Northern Europe, Ukraine
@@ -20,14 +18,12 @@ Northern Europe: Great Britain, Scandinavia, Ukraine, Southern Europe, Western E
 Western Europe: Great Britain, Northern Europe, Southern Europe, North Africa
 Southern Europe: Western Europe, Northern Europe, Ukraine, Middle East, Egypt, North Africa
 Ukraine: Scandinavia, Northern Europe, Southern Europe, Ural, Afghanistan, Middle East
-
 North Africa: Brazil, Western Europe, Southern Europe, Egypt, East Africa, Congo
 Egypt: North Africa, Southern Europe, Middle East, East Africa
 East Africa: Egypt, North Africa, Congo, South Africa, Madagascar, Middle East
 Congo: North Africa, East Africa, South Africa
 South Africa: Congo, East Africa, Madagascar
 Madagascar: East Africa, South Africa
-
 Ural: Ukraine, Siberia, China, Afghanistan
 Siberia: Ural, Yakutsk, Irkutsk, Mongolia, China
 Yakutsk: Siberia, Kamchatka, Irkutsk
@@ -40,7 +36,6 @@ Middle East: Ukraine, Southern Europe, Egypt, East Africa, India, Afghanistan
 India: Middle East, Afghanistan, China, Siam
 China: Ural, Siberia, Mongolia, Siam, India, Afghanistan
 Siam: India, China, Indonesia
-
 Indonesia: Siam, New Guinea, Western Australia
 New Guinea: Indonesia, Eastern Australia, Western Australia
 Western Australia: Indonesia, New Guinea, Eastern Australia

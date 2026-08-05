@@ -5,10 +5,16 @@
 #include <map>
 #include <vector>
 
+#include "Board.hpp"
 
 struct TerritoryState {
     std::string owner;
     int tanks;
+};
+// struct for understand which state i can attack ( to ) from state x
+struct Attack{
+    std::string from;
+    std::string to;
 };
 
 class GameState
@@ -29,4 +35,5 @@ public:
 
     void loadData();
     
+    std::vector<Attack> getPossibleAttacks(const std::string &player, Board &board);
 };

@@ -56,7 +56,6 @@ void GameState::loadData()
     }
     
 }
-
 std::vector<std::string> GameState::getListTerrOfPlayer(const std::string &player)
 {
     std::vector<std::string> risultato;
@@ -68,4 +67,24 @@ std::vector<std::string> GameState::getListTerrOfPlayer(const std::string &playe
         }
     }
     return risultato;
+}
+
+std::vector<Attack> GameState::getPossibleAttacks(const std::string &player, Board &board)
+{
+    std::vector<Attack> result;
+    std::vector<std::string> myTerritories = getListTerrOfPlayer(player);
+
+    for(std::string terr : myTerritories){
+
+        std::vector<std::string> neighbors = board.getVicini(terr);
+
+        for(std::string neighbor : neighbors)
+        {
+            if(getOwner(neighbor) != player)
+            {
+                result.push_back({terr, neighbor});
+            }
+        }
+    }
+    return result;
 }

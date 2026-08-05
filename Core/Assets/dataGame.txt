@@ -1,10 +1,42 @@
 Alaska: Red, 5
-Ontario: Blue, 8
-Brazil: Green, 12
-Argentina: Yellow, 3
-Great Britain: Red, 6
-Ukraine: Blue, 9
-North Africa: Green, 4
-Egypt: Yellow, 2
-China: Red, 15
-Kamchatka: Blue, 7
+Northwest Territory: Blue, 4
+Greenland: Blue, 3
+Alberta: Red, 4
+Ontario: Blue, 5
+Quebec: Blue, 4
+Western US: Red, 4
+Eastern US: Yellow, 5
+Central America: Yellow, 3
+Venezuela: Yellow, 3
+Brazil: Green, 6
+Peru: Green, 4
+Argentina: Green, 3
+Iceland: Red, 3
+Great Britain: Red, 4
+Scandinavia: Red, 4
+Northern Europe: Blue, 4
+Western Europe: Yellow, 5
+Southern Europe: Yellow, 4
+Ukraine: Blue, 5
+North Africa: Green, 5
+Egypt: Yellow, 4
+East Africa: Green, 4
+Congo: Green, 3
+South Africa: Green, 3
+Madagascar: Green, 2
+Ural: Red, 4
+Siberia: Blue, 6
+Yakutsk: Blue, 4
+Kamchatka: Red, 5
+Irkutsk: Blue, 4
+Mongolia: Blue, 5
+Japan: Red, 4
+Afghanistan: Red, 4
+Middle East: Yellow, 5
+India: Yellow, 5
+China: Red, 8
+Siam: Green, 4
+Indonesia: Green, 4
+New Guinea: Green, 3
+Western Australia: Green, 3
+Eastern Australia: Green, 3

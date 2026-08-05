@@ -6,6 +6,7 @@
 #include <sstream>
 
 #include "../include/GameState.hpp"
+#include "../include/Board.hpp"
 
 
 GameState::GameState(const std::string &filename)
@@ -31,6 +32,9 @@ std::string GameState::trim(std::string s)
 
 std::string GameState::getOwner(const std::string &territory)
 {
+    if (info.find(territory) == info.end()) {
+        throw std::runtime_error("There is a territory that is NOT in the database, plese check dataGame.txt with Board.txt"); 
+    }
     return info[territory].owner;
 }
 

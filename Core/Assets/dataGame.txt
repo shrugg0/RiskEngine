@@ -1,0 +1,10 @@
+Alaska: Red, 5
+Ontario: Blue, 8
+Brazil: Green, 12
+Argentina: Yellow, 3
+Great Britain: Red, 6
+Ukraine: Blue, 9
+North Africa: Green, 4
+Egypt: Yellow, 2
+China: Red, 15
+Kamchatka: Blue, 7

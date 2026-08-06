@@ -20,14 +20,7 @@ public:
 
     int getTanks();
 
-    int getNumberTerritori();
-
-    void updateTanks(int toAdd);
-
-    void updateTerritori(std::string toAdd);
-
-    void listTerritori();
-    
+    void Army::updateTanks(int toAdd);
 };
 
 

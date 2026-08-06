@@ -82,3 +82,8 @@ void MonteCarlo::PrintStats()
     std::cout << "\nTempo totale impiegato: " << duration.count() << " ms" << std::endl;
         
 }
+
+float MonteCarlo::getWinRate()
+{
+    return ((float)stats[esercito1.getPlayer()] / sims) * 100;
+}

@@ -7,6 +7,7 @@
 #include "../include/Battle.hpp"
 #include "../include/Dadi.hpp"
 #include "../include/MonteCarlo.hpp"
+#include "MonteCarlo.hpp"
 
 #define MS 250
 

@@ -1,3 +1,5 @@
+#ifndef GAMESTATE_HPP
+#define GAMESTATE_HPP
 /* Who controls each territory, and how many tanks, rn ?  */
 #include <iostream>
 #include <fstream>
@@ -37,3 +39,4 @@ public:
     
     std::vector<Attack> getPossibleAttacks(const std::string &player, Board &board);
 };
+#endif

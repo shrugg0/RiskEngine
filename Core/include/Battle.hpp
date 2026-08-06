@@ -1,4 +1,5 @@
-#pragma once
+#ifndef BATTLE_HPP
+#define BATTLE_HPP
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -22,3 +23,4 @@ public:
 
     int getDifTanks();
 };
+#endif

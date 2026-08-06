@@ -1,4 +1,6 @@
-#pragma once
+#ifndef DADI_HPP
+#define DADI_HPP
+
 #include <bits/stdc++.h>
 
 class Dadi
@@ -25,3 +27,4 @@ public:
 
 };
 
+#endif

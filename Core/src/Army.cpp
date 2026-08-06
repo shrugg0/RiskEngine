@@ -4,7 +4,7 @@
 #include "../include/Army.hpp"
 
 
-Army::Army(std::string player, int tanks, int territori) : player(player), tanks(tanks), NumberTerritori(territori) {}
+Army::Army(std::string player, int tanks) : player(player), tanks(tanks) {}
 
 std::string Army::getPlayer()
 {

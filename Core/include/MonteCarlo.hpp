@@ -1,4 +1,6 @@
-#pragma once
+#ifndef MONTECARLO_HPP
+#define MONTECARLO_HPP
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -25,6 +27,7 @@ public:
     void RunnaSimulazioni();
 
     void PrintStats();
+
+    float getWinRate();
 };
-
-
+#endif

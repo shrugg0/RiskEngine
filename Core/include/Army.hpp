@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ARMY_HPP
+#define ARMY_HPP
 
 #include <iostream>
 #include <vector>
@@ -13,7 +14,7 @@ private:
     std::vector<std::string> territori;
 
 public:
-    Army(std::string player, int tanks, int territori);
+    Army(std::string player, int tanks);
 
     // Getters
     std::string getPlayer();
@@ -22,6 +23,4 @@ public:
 
     void Army::updateTanks(int toAdd);
 };
-
-
-
+#endif

@@ -18,7 +18,7 @@ int main(void)
     Engine en;
 
     std::string player = "Red";
-    int nSim = 10;
+    int nSim = 1000;
 
     board.loadData();
     gs.loadData();
@@ -27,9 +27,9 @@ int main(void)
     atk.from = "Alaska";
     atk.to = "Northwest Territory";
 
-    float winProb = en.EvaluateAttack(atk, gs, nSim);
-
-    std::cout << "Probabilità di conquista territorio : " << winProb << std::endl;
+    en.EvaluateAllAttacks(player, gs, board, nSim);
+    std::cout << "\n\n";
+    en.PrintResult();
     
     return OK;
 }

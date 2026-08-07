@@ -7,14 +7,14 @@
 #include "../include/Dadi.hpp"
 
 
-Battle::Battle(Army att, Army dif) : esercito1(att), esercito2(dif), dadoAtk(6,3), dadoDif(6,3) {};
+Battle::Battle(Army att, Army dif) : esercito1(att), esercito2(dif), dadoAtk(6,3), dadoDif(6,3), diceCap(2) {};
 
 std::string Battle::simulaRound()
 {
     std::string winner;
     // Gestione numero dadi, ricalcolato ad ogni turno in base ai carri
     int diceAtk = std::min(3, esercito1.getTanks() - 1); 
-    int diceDif = std::min(2, esercito2.getTanks());  //! Documentazione regole readme
+    int diceDif = std::min(diceCap, esercito2.getTanks());  //! Documentazione regole readme
 
     dadoAtk.setMultiply(diceAtk);
     dadoDif.setMultiply(diceDif);
@@ -79,4 +79,16 @@ int Battle::getAtkTanks()
 int Battle::getDifTanks()
 {
     return esercito2.getTanks();
+}
+
+void Battle::setDiceCap()
+{
+    int newCap;
+    do
+    {
+        std::cout << "\nNew dice cap ( 2 or 3 ): ";
+        std::cin >> newCap;
+    } while (newCap != 2 || newCap != 3);
+    
+    this->diceCap = newCap;
 }

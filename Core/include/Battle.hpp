@@ -14,6 +14,7 @@ private:
     Army esercito2;
     Dadi dadoAtk;
     Dadi dadoDif;
+    int diceCap = 3;
 public:
     Battle(Army att, Army dif);
 
@@ -22,5 +23,7 @@ public:
     int getAtkTanks();
 
     int getDifTanks();
+
+    void setDiceCap();
 };
 #endif

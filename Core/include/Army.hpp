@@ -21,6 +21,6 @@ public:
 
     int getTanks();
 
-    void Army::updateTanks(int toAdd);
+    void updateTanks(int toAdd);
 };
 #endif

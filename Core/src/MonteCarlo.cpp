@@ -28,14 +28,11 @@ std::string MonteCarlo::SimulaBattle()
         i++;
     }
     std::string winner;
-    if (battle.getAtkTanks() > battle.getDifTanks())
+    if (battle.getDifTanks() == 0)
     {
         winner = esercito1.getPlayer();
-    }else if (battle.getAtkTanks() < battle.getDifTanks())
-    {
-        winner = esercito2.getPlayer();
     }else{
-        winner = "Pareggio";
+        winner = esercito2.getPlayer();
     }
     
     return winner;

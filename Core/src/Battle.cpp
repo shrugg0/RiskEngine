@@ -7,17 +7,14 @@
 #include "../include/Dadi.hpp"
 
 
-
-//! nuova istanza di Battle per ogni scontro ? 
-//! se si strcut attacks al posto di esercito1 e esercito2, se no simula round deve prendere come parametro attacks
 Battle::Battle(Army att, Army dif) : esercito1(att), esercito2(dif), dadoAtk(6,3), dadoDif(6,3) {};
 
 std::string Battle::simulaRound()
 {
     std::string winner;
     // Gestione numero dadi, ricalcolato ad ogni turno in base ai carri
-    int diceAtk = std::min(3, esercito1.getTanks() - 1); //! Da sostituire con i tanks di from.tanks ( struct Attack in GameState.hpp)
-    int diceDif = std::min(3, esercito2.getTanks()); //! Da sostituire con i tanks di to.tanks ( struct Attack in GameState.hpp)
+    int diceAtk = std::min(3, esercito1.getTanks() - 1); 
+    int diceDif = std::min(2, esercito2.getTanks());  //! Documentazione regole readme
 
     dadoAtk.setMultiply(diceAtk);
     dadoDif.setMultiply(diceDif);
@@ -52,19 +49,25 @@ std::string Battle::simulaRound()
             difLoses++;
         }
     }
-    esercito1.updateTanks(-atkLoses); //! from.tanks =- loses
-    esercito2.updateTanks(-difLoses); //! to.tanks =- loses
+    esercito1.updateTanks(-atkLoses); 
+    esercito2.updateTanks(-difLoses); 
     
     std::cout << "\nPerdite lato attaccante: " << atkLoses << std::endl;
     std::cout << "Perdite lato difensore: " << difLoses << std::endl;
+
+    std::cout << "Carri rimasti sul territorio attaccante :" << esercito1.getTanks() << std::endl;
+    std::cout << "Carri rimasti sul territorio difensore :" << esercito2.getTanks() << std::endl;
+    
     
 
     if (atkLoses > difLoses)
     {
-        winner = esercito2.getPlayer();    //! winner = to.owner
+        winner = esercito2.getPlayer();    
+    }else if (atkLoses < difLoses){
+        winner = esercito1.getPlayer();
     }else{
-        winner = esercito1.getPlayer(); //! winnwer = from.owner
-    }
+        winner = "Tie";
+    }  
     return winner;
 }
 

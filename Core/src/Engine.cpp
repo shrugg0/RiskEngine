@@ -33,9 +33,6 @@ void Engine::EvaluateAllAttacks(std::string giocatore, GameState &stato, Board &
         results.push_back({a, prob});
     }
 }
-// Attaccando da StatsAttacks.atk.from a StatsAttacks.atk.to al StatsAttacks.winProb vinci
-// std::sort(result.begin(),result.end(), [](float a, float b) { return })
-//std::sort(vecAtk.begin(), vecAtk.end(), [](int a, int b) { return a > b; });
 std::vector<StatsAttacks> Engine::GetResult()
 {
     return results;

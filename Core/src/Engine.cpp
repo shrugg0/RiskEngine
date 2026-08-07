@@ -43,6 +43,6 @@ void Engine::PrintResult()
 {
     std::sort(results.begin(), results.end(), [](const StatsAttacks a, const StatsAttacks b){ return a.winProb > b.winProb;});
     for(StatsAttacks sa : results){
-        std::cout << "Attaccando da " << sa.atk.from << " il territorio " << sa.atk.to << " hai il " << sa.winProb << "% di vittoria" << std::endl;
+        std::cout << "Attacking from  " << sa.atk.from << " the territory " << sa.atk.to << " you have a  " << sa.winProb << "% of winning" << std::endl;
     }
 }

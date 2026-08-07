@@ -18,14 +18,13 @@ int main(void)
     Engine en;
 
     std::string player = "Red";
-    int nSim = 10000;
+    int nSim;
 
     board.loadData();
     gs.loadData();
 
-    Attack atk;
-    atk.from = "Alaska";
-    atk.to = "Northwest Territory";
+    std::cout << "How many simulation for each battle ( state vs state, 10000 recommended ): ";
+    std::cin >> nSim;
 
     en.EvaluateAllAttacks(player, gs, board, nSim);
     std::cout << "\n\n";

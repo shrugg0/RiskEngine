@@ -14,7 +14,7 @@ std::string Battle::simulaRound()
     std::string winner;
     // Gestione numero dadi, ricalcolato ad ogni turno in base ai carri
     int diceAtk = std::min(3, esercito1.getTanks() - 1); 
-    int diceDif = std::min(diceCap, esercito2.getTanks());  //! Documentazione regole readme
+    int diceDif = std::min(diceCap, esercito2.getTanks()); 
 
     dadoAtk.setMultiply(diceAtk);
     dadoDif.setMultiply(diceDif);
@@ -29,12 +29,12 @@ std::string Battle::simulaRound()
     std::sort(vecDif.begin(), vecDif.end(), [](int a, int b) { return a > b; });
 
 
-    std::cout << "Attaccante:" << std::endl;
+    std::cout << "Attacker:" << std::endl;
     for (int n : vecAtk)
     {
         std::cout << n << " ";
     }
-    std::cout << "\nDifensore:" << std::endl;
+    std::cout << "\nDefender:" << std::endl;
     for (int n : vecDif)
     {
         std::cout << n << " ";
@@ -52,11 +52,11 @@ std::string Battle::simulaRound()
     esercito1.updateTanks(-atkLoses); 
     esercito2.updateTanks(-difLoses); 
     
-    std::cout << "\nPerdite lato attaccante: " << atkLoses << std::endl;
-    std::cout << "Perdite lato difensore: " << difLoses << std::endl;
+    std::cout << "\nLoses attacker's side: " << atkLoses << std::endl;
+    std::cout << "Loses defender's side: " << difLoses << std::endl;
 
-    std::cout << "Carri rimasti sul territorio attaccante :" << esercito1.getTanks() << std::endl;
-    std::cout << "Carri rimasti sul territorio difensore :" << esercito2.getTanks() << std::endl;
+    std::cout << "Tanks left on the attacker's territory :" << esercito1.getTanks() << std::endl;
+    std::cout << "Tanks left on the defender's territory :" << esercito2.getTanks() << std::endl;
     
     
 

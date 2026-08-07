@@ -19,6 +19,8 @@ std::string MonteCarlo::SimulaBattle()
     Army difCopy = esercito2;
 
     Battle battle(atkCopy, difCopy);
+    
+    //battle.setDiceCap();
 
     while ((battle.getAtkTanks() -1) > 0 && battle.getDifTanks() > 0)
     {

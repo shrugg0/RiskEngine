@@ -58,9 +58,8 @@ cd Core
 g++ -std=c++17 main.cpp src/*.cpp -o risk_engine -I./include
 ```
 
-### Running
+### How to run
 ```bash
-cd Core
 ./main
 ```
 

@@ -12,7 +12,7 @@
 #include "../include/MonteCarlo.hpp"
 
 
-float Engine::EvaluateAttack(Attack atkStruct, GameState &gs, int nSim)
+double Engine::EvaluateAttack(Attack atkStruct, GameState &gs, int nSim)
 {
     Army atk(gs.getOwner(atkStruct.from), gs.getTanks(atkStruct.from));
     Army dif(gs.getOwner(atkStruct.to), gs.getTanks(atkStruct.to));
@@ -25,11 +25,12 @@ float Engine::EvaluateAttack(Attack atkStruct, GameState &gs, int nSim)
 
 void Engine::EvaluateAllAttacks(std::string giocatore, GameState &stato, Board &board, int nSim)
 {
+    results.clear();
     std::vector<Attack> attacchi = stato.getPossibleAttacks(giocatore, board);
     
     for (Attack a : attacchi)
     {
-        float prob = EvaluateAttack(a, stato, nSim);
+        double prob = EvaluateAttack(a, stato, nSim);
         results.push_back({a, prob});
     }
 }

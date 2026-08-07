@@ -8,7 +8,7 @@
 #include "../include/Dadi.hpp"
 #include "../include/MonteCarlo.hpp"
 
-#define MS 250
+#define MS 10
 
 MonteCarlo::MonteCarlo(Army atk, Army dif, int n) : esercito1(atk), esercito2(dif), sims(n), startTime(std::chrono::steady_clock::now()) {};
 
@@ -22,7 +22,7 @@ std::string MonteCarlo::SimulaBattle()
 
     while ((battle.getAtkTanks() -1) > 0 && battle.getDifTanks() > 0)
     {
-        std::cout << "\n============== inizio parita N " << i << "==============" << std::endl;
+        std::cout << "\n============== Start round N " << i << "==============" << std::endl;
         std::string winnerRound = battle.simulaRound();
         usleep(MS);
         i++;
@@ -42,7 +42,7 @@ void MonteCarlo::RunnaSimulazioni()
 {
     for (size_t i = 1; i <= sims; i++)
     {
-        std::cout << "\n============== inizio simulazione N " << i << "==============" << std::endl;
+        std::cout << "\n============== Start simulation N " << i << "==============" << std::endl;
         std::string winnerGame = MonteCarlo::SimulaBattle();
         stats[winnerGame]++;
     }
@@ -80,7 +80,7 @@ void MonteCarlo::PrintStats()
         
 }
 
-float MonteCarlo::getWinRate()
+double MonteCarlo::getWinRate()
 {
-    return ((float)stats[esercito1.getPlayer()] / sims) * 100;
+    return ((double)stats[esercito1.getPlayer()] / sims) * 100;
 }

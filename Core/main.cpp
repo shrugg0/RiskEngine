@@ -18,7 +18,7 @@ int main(void)
     Engine en;
 
     std::string player = "Red";
-    int nSim = 1000;
+    int nSim = 10000;
 
     board.loadData();
     gs.loadData();

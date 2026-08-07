@@ -12,7 +12,7 @@
 struct StatsAttacks
 {
     Attack atk;
-    float winProb;
+    double winProb;
 };
 
 class Engine
@@ -21,7 +21,7 @@ private:
     std::vector<StatsAttacks> results;  
     
 public:
-    float EvaluateAttack(Attack atk, GameState& gs, int nSim);
+    double EvaluateAttack(Attack atk, GameState& gs, int nSim);
 
     void EvaluateAllAttacks(std::string giocatore, GameState& stato, Board& board, int nSim);
 

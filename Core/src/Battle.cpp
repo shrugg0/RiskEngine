@@ -70,6 +70,17 @@ std::string Battle::simulaRound()
     }  
     return winner;
 }
+void Battle::setDiceCap()
+{
+    int newCap;
+    do
+    {
+        std::cout << "\nNew dice cap ( 2 or 3 ): ";
+        std::cin >> newCap;
+    } while (newCap != 2 && newCap != 3);
+    
+    this->diceCap = newCap;
+}
 
 int Battle::getAtkTanks()
 {
@@ -81,14 +92,3 @@ int Battle::getDifTanks()
     return esercito2.getTanks();
 }
 
-void Battle::setDiceCap()
-{
-    int newCap;
-    do
-    {
-        std::cout << "\nNew dice cap ( 2 or 3 ): ";
-        std::cin >> newCap;
-    } while (newCap != 2 || newCap != 3);
-    
-    this->diceCap = newCap;
-}

@@ -28,6 +28,6 @@ public:
 
     void PrintStats();
 
-    float getWinRate();
+    double getWinRate();
 };
 #endif

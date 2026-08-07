@@ -39,9 +39,11 @@ RiskEngine/
 ---
 
 ## READ CAREFULLY
+
 This project was created for educational purposes and cannot currently be used in real-world contexts. This is because it uses fictitious, static data saved in a .txt file, and the player being analyzed is hard-coded. The program will be usable once the Python module for image recognition is implemented.
 
 In addition, by default, the program uses the international rules regarding the maximum number of dice that can be used for defense, which is 2. However, it is possible to change this value using a commented-out setter in Montecarlo.cpp, line 23.
+
 ---
 
 ## Building & Usage

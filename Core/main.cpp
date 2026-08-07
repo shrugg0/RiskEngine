@@ -26,20 +26,10 @@ int main(void)
     Attack atk;
     atk.from = "Alaska";
     atk.to = "Northwest Territory";
-/*
+
     float winProb = en.EvaluateAttack(atk, gs, nSim);
 
     std::cout << "Probabilità di conquista territorio : " << winProb << std::endl;
-
-    */
-    Army attk(gs.getOwner(atk.from), 4);
-    Army dif(gs.getOwner(atk.to), 2);
-    Battle b(attk, dif);
-    for (size_t i = 0; i < 1000; i++)
-    {
-        std::cout << "Winner : " << b.simulaRound() << "\n\n";
-    }
-
     
     return OK;
 }

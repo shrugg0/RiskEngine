@@ -13,10 +13,11 @@ private:
     Army esercito1;
     Army esercito2;
     int sims;
+    bool verbose;
     std::map<std::string, int> stats;
     std::chrono::steady_clock::time_point startTime;
 public:
-    MonteCarlo(Army atk, Army dif, int n);
+    MonteCarlo(Army atk, Army dif, int n, bool verbose);
 
     std::string SimulaBattle();
 

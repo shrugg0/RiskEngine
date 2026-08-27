@@ -14,8 +14,9 @@ private:
     Dadi dadoAtk;
     Dadi dadoDif;
     int diceCap = 3;
+    bool verbose;
 public:
-    Battle(Army att, Army dif);
+    Battle(Army att, Army dif, bool verbose);
 
     std::string simulaRound();
 

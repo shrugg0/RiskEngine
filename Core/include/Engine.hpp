@@ -16,8 +16,11 @@ class Engine
 {
 private:
     std::vector<StatsAttacks> results;
+    bool verbose;
 
 public:
+    Engine(bool verbose);
+
     double EvaluateAttack(Attack atk, GameState& gs, int nSim);
 
     void EvaluateAllAttacks(std::string giocatore, GameState& stato, Board& board, int nSim);

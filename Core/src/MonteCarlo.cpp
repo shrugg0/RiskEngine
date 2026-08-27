@@ -7,7 +7,7 @@
 
 #define MS 10
 
-MonteCarlo::MonteCarlo(Army atk, Army dif, int n) : esercito1(atk), esercito2(dif), sims(n), startTime(std::chrono::steady_clock::now()) {};
+MonteCarlo::MonteCarlo(Army atk, Army dif, int n, bool verbose) : esercito1(atk), esercito2(dif), sims(n), verbose(verbose), startTime(std::chrono::steady_clock::now()) {};
 
 std::string MonteCarlo::SimulaBattle()
 {
@@ -15,13 +15,15 @@ std::string MonteCarlo::SimulaBattle()
     Army atkCopy = esercito1;
     Army difCopy = esercito2;
 
-    Battle battle(atkCopy, difCopy);
+    Battle battle(atkCopy, difCopy, verbose);
 
     //battle.setDiceCap();
 
     while ((battle.getAtkTanks() -1) > 0 && battle.getDifTanks() > 0)
     {
-        std::cout << "\n============== Start round N " << i << "==============" << std::endl;
+        if (verbose) {
+            std::cout << "\n============== Start round N " << i << "==============" << std::endl;
+        }
         std::string winnerRound = battle.simulaRound();
         usleep(MS);
         i++;
@@ -41,7 +43,9 @@ void MonteCarlo::RunnaSimulazioni()
 {
     for (size_t i = 1; i <= sims; i++)
     {
-        std::cout << "\n============== Start simulation N " << i << "==============" << std::endl;
+        if (verbose) {
+            std::cout << "\n============== Start simulation N " << i << "==============" << std::endl;
+        }
         std::string winnerGame = MonteCarlo::SimulaBattle();
         stats[winnerGame]++;
     }

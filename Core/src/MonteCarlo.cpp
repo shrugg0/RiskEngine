@@ -1,11 +1,8 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
 #include <chrono>
 
 #include "../include/Army.hpp"
 #include "../include/Battle.hpp"
-#include "../include/Dadi.hpp"
 #include "../include/MonteCarlo.hpp"
 
 #define MS 10
@@ -19,7 +16,7 @@ std::string MonteCarlo::SimulaBattle()
     Army difCopy = esercito2;
 
     Battle battle(atkCopy, difCopy);
-    
+
     //battle.setDiceCap();
 
     while ((battle.getAtkTanks() -1) > 0 && battle.getDifTanks() > 0)
@@ -36,7 +33,7 @@ std::string MonteCarlo::SimulaBattle()
     }else{
         winner = esercito2.getPlayer();
     }
-    
+
     return winner;
 }
 
@@ -48,7 +45,7 @@ void MonteCarlo::RunnaSimulazioni()
         std::string winnerGame = MonteCarlo::SimulaBattle();
         stats[winnerGame]++;
     }
-    
+
 }
 
 void MonteCarlo::PrintStats()
@@ -79,7 +76,7 @@ void MonteCarlo::PrintStats()
     auto endTime = std::chrono::steady_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime);
     std::cout << "\nTempo totale impiegato: " << duration.count() << " ms" << std::endl;
-        
+
 }
 
 double MonteCarlo::getWinRate()

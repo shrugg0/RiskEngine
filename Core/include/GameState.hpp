@@ -1,7 +1,6 @@
 #ifndef GAMESTATE_HPP
 #define GAMESTATE_HPP
 /* Who controls each territory, and how many tanks, rn ?  */
-#include <iostream>
 #include <fstream>
 #include <string>
 #include <map>
@@ -32,11 +31,11 @@ public:
     std::string getOwner(const std::string &territoy);
 
     int getTanks(const std::string &territory);
-  
+
     std::vector<std::string> getListTerrOfPlayer(const std::string &player);
 
     void loadData();
-    
+
     std::vector<Attack> getPossibleAttacks(const std::string &player, Board &board);
 };
 #endif

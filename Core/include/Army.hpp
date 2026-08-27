@@ -1,7 +1,6 @@
 #ifndef ARMY_HPP
 #define ARMY_HPP
 
-#include <iostream>
 #include <vector>
 
 

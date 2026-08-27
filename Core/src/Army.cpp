@@ -1,6 +1,3 @@
-#include <iostream>
-#include <vector>
-
 #include "../include/Army.hpp"
 
 
@@ -20,4 +17,3 @@ void Army::updateTanks(int toAdd)
 {
     this->tanks += toAdd;
 }
-

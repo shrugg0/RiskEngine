@@ -1,11 +1,8 @@
 #ifndef ENGINE_HPP
 #define ENGINE_HPP
 
-#include <iostream>
 #include <vector>
-#include <map>
 #include <string>
-#include <fstream>
 
 #include "GameState.hpp"
 
@@ -18,8 +15,8 @@ struct StatsAttacks
 class Engine
 {
 private:
-    std::vector<StatsAttacks> results;  
-    
+    std::vector<StatsAttacks> results;
+
 public:
     double EvaluateAttack(Attack atk, GameState& gs, int nSim);
 
@@ -27,7 +24,7 @@ public:
 
     std::vector<StatsAttacks> GetResult();
 
-    void PrintResult(); 
+    void PrintResult();
 };
 
 #endif

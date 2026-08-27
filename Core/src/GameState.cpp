@@ -1,9 +1,7 @@
-#include <iostream>
 #include <vector>
 #include <map>
 #include <string>
 #include <fstream>
-#include <sstream>
 
 #include "../include/GameState.hpp"
 #include "../include/Board.hpp"
@@ -17,7 +15,7 @@ GameState::GameState(const std::string &filename)
     {
         throw std::runtime_error("File not found -> " + fileName);
     }
-    
+
 }
 
 std::string GameState::trim(std::string s)
@@ -33,7 +31,7 @@ std::string GameState::trim(std::string s)
 std::string GameState::getOwner(const std::string &territory)
 {
     if (info.find(territory) == info.end()) {
-        throw std::runtime_error("There is a territory that is NOT in the database, plese check dataGame.txt with Board.txt"); 
+        throw std::runtime_error("There is a territory that is NOT in the database, plese check dataGame.txt with Board.txt");
     }
     return info[territory].owner;
 }
@@ -58,7 +56,7 @@ void GameState::loadData()
         info[state].owner = other.substr(0, newPos);
         info[state].tanks = std::stoi(other.substr(newPos + 1));
     }
-    
+
 }
 std::vector<std::string> GameState::getListTerrOfPlayer(const std::string &player)
 {

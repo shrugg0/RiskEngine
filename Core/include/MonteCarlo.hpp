@@ -1,15 +1,10 @@
 #ifndef MONTECARLO_HPP
 #define MONTECARLO_HPP
 
-#include <iostream>
-#include <vector>
-#include <algorithm>
 #include <map>
 #include <chrono>
 
 #include "Army.hpp"
-#include "Dadi.hpp"
-#include "Battle.hpp"
 
 class MonteCarlo
 {

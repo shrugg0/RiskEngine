@@ -1,9 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <map>
 #include <string>
-#include <fstream>
-#include <sstream>
 
 #include "../include/GameState.hpp"
 #include "../include/Board.hpp"
@@ -27,7 +24,7 @@ void Engine::EvaluateAllAttacks(std::string giocatore, GameState &stato, Board &
 {
     results.clear();
     std::vector<Attack> attacchi = stato.getPossibleAttacks(giocatore, board);
-    
+
     for (Attack a : attacchi)
     {
         double prob = EvaluateAttack(a, stato, nSim);

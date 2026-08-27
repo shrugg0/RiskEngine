@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <algorithm>
 
 #include "../include/GameState.hpp"
 #include "../include/Board.hpp"

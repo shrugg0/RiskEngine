@@ -1,8 +1,9 @@
 #ifndef MONTECARLO_HPP
 #define MONTECARLO_HPP
 
-#include <map>
+#include <string>
 #include <chrono>
+#include <map>
 
 #include "Army.hpp"
 

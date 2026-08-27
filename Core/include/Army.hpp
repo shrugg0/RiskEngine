@@ -2,7 +2,7 @@
 #define ARMY_HPP
 
 #include <vector>
-
+#include <string>
 
 class Army
 {

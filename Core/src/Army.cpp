@@ -1,4 +1,5 @@
 #include "../include/Army.hpp"
+#include <string>
 
 
 Army::Army(std::string player, int tanks) : player(player), tanks(tanks) {}

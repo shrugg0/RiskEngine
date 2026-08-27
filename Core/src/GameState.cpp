@@ -1,3 +1,4 @@
+#include <stdexcept>
 #include <vector>
 #include <map>
 #include <string>
@@ -38,6 +39,9 @@ std::string GameState::getOwner(const std::string &territory)
 
 int GameState::getTanks(const std::string &territory)
 {
+    if (info.find(territory) == info.end()) {
+        throw std::runtime_error("There is a territory that is NOT in the database, plese check dataGame.txt with Board.txt");
+    }
     return info[territory].tanks;
 }
 

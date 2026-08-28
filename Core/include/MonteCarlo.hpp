@@ -2,7 +2,6 @@
 #define MONTECARLO_HPP
 
 #include <string>
-#include <chrono>
 #include <map>
 
 #include "Army.hpp"
@@ -15,7 +14,6 @@ private:
     int sims;
     bool verbose;
     std::map<std::string, int> stats;
-    std::chrono::steady_clock::time_point startTime;
 public:
     MonteCarlo(Army atk, Army dif, int n, bool verbose);
 

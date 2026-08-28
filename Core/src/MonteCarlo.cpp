@@ -7,7 +7,7 @@
 
 #define MS 10
 
-MonteCarlo::MonteCarlo(Army atk, Army dif, int n, bool verbose) : esercito1(atk), esercito2(dif), sims(n), verbose(verbose), startTime(std::chrono::steady_clock::now()) {};
+MonteCarlo::MonteCarlo(Army atk, Army dif, int n, bool verbose) : esercito1(atk), esercito2(dif), sims(n), verbose(verbose) {};
 
 std::string MonteCarlo::SimulaBattle()
 {
@@ -76,11 +76,6 @@ void MonteCarlo::PrintStats()
                   percentPar;
     std::cout << "\nTotale simulazioni registrate: " << totalWins << std::endl;
     std::cout << "Somma percentuali: " << sumPercent << "%" << std::endl;
-
-    auto endTime = std::chrono::steady_clock::now();
-    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime);
-    std::cout << "\nTempo totale impiegato: " << duration.count() << " ms" << std::endl;
-
 }
 
 double MonteCarlo::getWinRate()

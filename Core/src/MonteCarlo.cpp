@@ -1,5 +1,4 @@
 #include <iostream>
-#include <chrono>
 
 #include "../include/Army.hpp"
 #include "../include/Battle.hpp"

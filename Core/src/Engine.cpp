@@ -9,7 +9,7 @@
 #include "../include/Army.hpp"
 #include "../include/MonteCarlo.hpp"
 
-Engine::Engine(bool verbose) : verbose(verbose) {};
+Engine::Engine(bool verbose) : verbose(verbose), startTime(std::chrono::steady_clock::now()) {};
 
 double Engine::EvaluateAttack(Attack atkStruct, GameState &gs, int nSim)
 {
@@ -44,4 +44,7 @@ void Engine::PrintResult()
     for(StatsAttacks sa : results){
         std::cout << "Attacking from " << sa.atk.from << " the territory " << sa.atk.to << " you have a " << sa.winProb << "% of winning" << std::endl;
     }
+    auto endTime = std::chrono::steady_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime);
+    std::cout << "\nEvaluation done in: " << duration.count() << " ms" << std::endl;
 }

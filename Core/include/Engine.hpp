@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <chrono>
 
 #include "GameState.hpp"
 
@@ -17,6 +18,7 @@ class Engine
 private:
     std::vector<StatsAttacks> results;
     bool verbose;
+    std::chrono::steady_clock::time_point startTime;
 
 public:
     Engine(bool verbose);

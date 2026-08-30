@@ -1,7 +1,7 @@
 #ifndef DADI_HPP
 #define DADI_HPP
 
-#include <bits/stdc++.h>
+#include <vector>
 
 class Dadi
 {
@@ -14,7 +14,7 @@ public:
     Dadi(int faces);
 
     Dadi(int faces, int dadiDaTirare);
-    
+
     std::vector<int> Tira();
 
     void setFaces(int faces);

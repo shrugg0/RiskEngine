@@ -4,7 +4,6 @@
 #include "../include/Battle.hpp"
 #include "../include/MonteCarlo.hpp"
 
-#define MS 10
 
 MonteCarlo::MonteCarlo(Army atk, Army dif, int n, bool verbose) : esercito1(atk), esercito2(dif), sims(n), verbose(verbose) {};
 
@@ -24,7 +23,6 @@ std::string MonteCarlo::SimulaBattle()
             std::cout << "\n============== Start round N " << i << "==============" << std::endl;
         }
         std::string winnerRound = battle.simulaRound();
-        usleep(MS);
         i++;
     }
     std::string winner;

@@ -1,5 +1,5 @@
+#include <array>
 #include <iostream>
-#include <vector>
 #include <algorithm>
 
 #include "../include/Army.hpp"
@@ -20,8 +20,8 @@ std::string Battle::simulateRound()
     defenderDice.setDiceCount(diceDif);
     int attackerLosses = 0, defenderLosses = 0;
 
-    std::vector attackerRolls = attackerDice.roll();
-    std::vector defenderRolls = defenderDice.roll();
+    std::array<int,3> attackerRolls = attackerDice.roll();
+    std::array<int,3> defenderRolls = defenderDice.roll();
 
 
     // Sort vectors in descending order

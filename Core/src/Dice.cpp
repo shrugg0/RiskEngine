@@ -1,4 +1,3 @@
-#include <vector>
 #include <random>
 #include <chrono>
 
@@ -18,16 +17,16 @@ Dice::Dice(int faces, int diceToRoll){
     this->diceCount = diceToRoll;
 }
 
-std::vector<int> Dice::roll()
+std::array<int, 3> Dice::roll()
 {
-    std::vector<int> results;
+    std::array<int, 3> results = {0};
 
     static std::random_device rd;
     static std::mt19937 gen(std::chrono::steady_clock::now().time_since_epoch().count());
     std::uniform_int_distribution<int> distrib(1, faces);
 
     for(size_t i = 0; i < diceCount; i++){
-        results.push_back(distrib(gen));
+        results[i] = distrib(gen);
     }
 
     return results;

@@ -1,7 +1,7 @@
 #ifndef DICE_HPP
 #define DICE_HPP
 
-#include <vector>
+#include <array>
 
 class Dice
 {
@@ -15,7 +15,7 @@ public:
 
     Dice(int faces, int diceToRoll);
 
-    std::vector<int> roll();
+    std::array<int, 3> roll();
 
     void setFaces(int faces);
 

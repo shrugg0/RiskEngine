@@ -53,7 +53,7 @@ In addition, by default, the program uses the international rules regarding the 
 ### Compilation
 ```bash
 cd Core
-g++ -std=c++17 main.cpp src/*.cpp -o risk_engine -I./include
+g++ -std=c++17 main.cpp src/*.cpp -o /bin/risk_engine -I./include
 ```
 
 ### Running

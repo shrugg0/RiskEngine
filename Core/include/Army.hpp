@@ -16,9 +16,9 @@ public:
     Army(std::string player, int tanks);
 
     // Getters
-    std::string getPlayer();
+    std::string getPlayer() const;
 
-    int getTanks();
+    int getTanks() const;
 
     void updateTanks(int toAdd);
 };

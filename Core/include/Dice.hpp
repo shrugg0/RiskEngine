@@ -21,9 +21,9 @@ public:
 
     void setDiceCount(int newDiceCount);
 
-    int getFaces();
+    int getFaces() const;
 
-    int getDiceCount();
+    int getDiceCount() const;
 
 };
 

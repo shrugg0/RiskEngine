@@ -33,7 +33,7 @@ void Engine::evaluateAllAttacks(std::string player, GameState &gameState, Board 
         results.push_back({a, prob});
     }
 }
-std::vector<AttackStats> Engine::getResults()
+std::vector<AttackStats> Engine::getResults() const
 {
     return results;
 }

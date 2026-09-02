@@ -4,12 +4,12 @@
 
 Army::Army(std::string player, int tanks) : player(player), tanks(tanks) {}
 
-std::string Army::getPlayer()
+std::string Army::getPlayer() const
 {
     return this->player;
 }
 
-int Army::getTanks()
+int Army::getTanks() const
 {
     return this->tanks;
 }

@@ -20,9 +20,9 @@ public:
 
     std::string simulateRound();
 
-    int getAttackerTanks();
+    int getAttackerTanks() const;
 
-    int getDefenderTanks();
+    int getDefenderTanks() const;
 
     void setDiceCap();
 };

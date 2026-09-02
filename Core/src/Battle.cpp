@@ -88,12 +88,12 @@ void Battle::setDiceCap()
     this->diceCap = newCap;
 }
 
-int Battle::getAttackerTanks()
+int Battle::getAttackerTanks() const
 {
     return attackerArmy.getTanks();
 }
 
-int Battle::getDefenderTanks()
+int Battle::getDefenderTanks() const
 {
     return defenderArmy.getTanks();
 }

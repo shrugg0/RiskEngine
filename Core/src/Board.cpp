@@ -26,7 +26,7 @@ std::string Board::trim(std::string s)
     return s;
 }
 
-void Board::printBoard(){
+void Board::printBoard() const {
     for(const auto& [key, value] : adjList){
         std::cout << key << " - ";
         for(const auto& state : value){
@@ -62,21 +62,21 @@ void Board::loadData()
     
 
 // reference used here : https://en.cppreference.com/cpp/container/map/find
-std::vector<std::string> Board::getNeighbors(const std::string &state)
+std::vector<std::string> Board::getNeighbors(const std::string &state) const
 {
     if (auto search = adjList.find(state) ; search != adjList.end())
     {
-        return adjList[state];
+        return search->second;
     }else{
         return {};
     }
 }
 
-void Board::printNeighbors(const std::string &state)
+void Board::printNeighbors(const std::string &state) const
 {
     if (auto search = adjList.find(state) ; search != adjList.end())
     {
-        for(const auto& v : adjList[state]){
+        for(const auto& v : search->second){
             std::cout << v << " ";
         }
     }

@@ -28,14 +28,14 @@ private:
 public:
     GameState(const std::string &filename);
 
-    std::string getOwner(const std::string &territory);
+    std::string getOwner(const std::string &territory) const;
 
-    int getTanks(const std::string &territory);
+    int getTanks(const std::string &territory) const;
 
-    std::vector<std::string> getPlayerTerritories(const std::string &player);
+    std::vector<std::string> getPlayerTerritories(const std::string &player) const;
 
     void loadData();
 
-    std::vector<Attack> getPossibleAttacks(const std::string &player, Board &board);
+    std::vector<Attack> getPossibleAttacks(const std::string &player, const Board &board) const;
 };
 #endif

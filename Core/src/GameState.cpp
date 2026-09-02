@@ -29,20 +29,22 @@ std::string GameState::trim(std::string s)
 }
 
 
-std::string GameState::getOwner(const std::string &territory)
+std::string GameState::getOwner(const std::string &territory) const
 {
-    if (info.find(territory) == info.end()) {
+    auto it = info.find(territory);
+    if (it == info.end()) {
         throw std::runtime_error("There is a territory that is NOT in the database, plese check dataGame.txt with Board.txt");
     }
-    return info[territory].owner;
+    return it->second.owner;
 }
 
-int GameState::getTanks(const std::string &territory)
+int GameState::getTanks(const std::string &territory) const
 {
-    if (info.find(territory) == info.end()) {
+    auto it = info.find(territory);
+    if (it == info.end()) {
         throw std::runtime_error("There is a territory that is NOT in the database, plese check dataGame.txt with Board.txt");
     }
-    return info[territory].tanks;
+    return it->second.tanks;
 }
 
 void GameState::loadData()
@@ -62,10 +64,10 @@ void GameState::loadData()
     }
 
 }
-std::vector<std::string> GameState::getPlayerTerritories(const std::string &player)
+std::vector<std::string> GameState::getPlayerTerritories(const std::string &player) const
 {
     std::vector<std::string> result;
-    for (auto& pair : info)
+    for (const auto& pair : info)
     {
         if (pair.second.owner == player)
         {
@@ -75,7 +77,7 @@ std::vector<std::string> GameState::getPlayerTerritories(const std::string &play
     return result;
 }
 
-std::vector<Attack> GameState::getPossibleAttacks(const std::string &player, Board &board)
+std::vector<Attack> GameState::getPossibleAttacks(const std::string &player, const Board &board) const
 {
     std::vector<Attack> result;
     std::vector<std::string> myTerritories = getPlayerTerritories(player);

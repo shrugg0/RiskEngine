@@ -27,7 +27,7 @@ public:
 
     void evaluateAllAttacks(std::string player, GameState& gameState, Board& board, int numSimulations);
 
-    std::vector<AttackStats> getResults();
+    std::vector<AttackStats> getResults() const;
 
     void printResults();
 };

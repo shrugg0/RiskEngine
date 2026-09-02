@@ -19,11 +19,11 @@ public:
 
     void loadData();
 
-    std::vector<std::string> getNeighbors(const std::string& state);
+    std::vector<std::string> getNeighbors(const std::string& state) const;
 
-    void printBoard();
+    void printBoard() const;
 
-    void printNeighbors(const std::string &state);
+    void printNeighbors(const std::string &state) const;
 };
 
 

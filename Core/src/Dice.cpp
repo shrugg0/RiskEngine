@@ -43,12 +43,12 @@ void Dice::setDiceCount(int newDiceCount)
     this->diceCount = newDiceCount;
 }
 
-int Dice::getFaces()
+int Dice::getFaces() const
 {
     return this->faces;
 }
 
-int Dice::getDiceCount()
+int Dice::getDiceCount() const
 {
     return this->diceCount;
 }

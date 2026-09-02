@@ -23,16 +23,16 @@ class GameState
 private:
     std::map<std::string, TerritoryState> info;
     std::string fileName;
-    std::ifstream dataGame;
+    std::ifstream gameData;
     std::string trim(std::string s);
 public:
     GameState(const std::string &filename);
 
-    std::string getOwner(const std::string &territoy);
+    std::string getOwner(const std::string &territory);
 
     int getTanks(const std::string &territory);
 
-    std::vector<std::string> getListTerrOfPlayer(const std::string &player);
+    std::vector<std::string> getPlayerTerritories(const std::string &player);
 
     void loadData();
 

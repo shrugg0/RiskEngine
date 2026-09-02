@@ -1,28 +1,28 @@
 #ifndef BATTLE_HPP
 #define BATTLE_HPP
 
-
+#include <string>
 
 #include "Army.hpp"
-#include "Dadi.hpp"
+#include "Dice.hpp"
 
 class Battle
 {
 private:
-    Army esercito1;
-    Army esercito2;
-    Dadi dadoAtk;
-    Dadi dadoDif;
+    Army attackerArmy;
+    Army defenderArmy;
+    Dice attackerDice;
+    Dice defenderDice;
     int diceCap = 3;
     bool verbose;
 public:
     Battle(Army att, Army dif, bool verbose);
 
-    std::string simulaRound();
+    std::string simulateRound();
 
-    int getAtkTanks();
+    int getAttackerTanks();
 
-    int getDifTanks();
+    int getDefenderTanks();
 
     void setDiceCap();
 };

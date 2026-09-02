@@ -9,19 +9,19 @@
 class MonteCarlo
 {
 private:
-    Army esercito1;
-    Army esercito2;
-    int sims;
+    Army attackerArmy;
+    Army defenderArmy;
+    int simulations;
     bool verbose;
     std::map<std::string, int> stats;
 public:
     MonteCarlo(Army atk, Army dif, int n, bool verbose);
 
-    std::string SimulaBattle();
+    std::string simulateBattle();
 
-    void RunnaSimulazioni();
+    void runSimulations();
 
-    void PrintStats();
+    void printStats();
 
     double getWinRate();
 };

@@ -9,8 +9,8 @@ class Army
 private:
     std::string player;
     int tanks;
-    int NumberTerritori;
-    std::vector<std::string> territori;
+    int territoriesCount;
+    std::vector<std::string> territories;
 
 public:
     Army(std::string player, int tanks);

@@ -52,9 +52,9 @@ int main(int argc, char *argv[])
     board.loadData();
     gs.loadData();
 
-    en.EvaluateAllAttacks(player, gs, board, nSim);
+    en.evaluateAllAttacks(player, gs, board, nSim);
     std::cout << "\n\n";
-    en.PrintResult();
+    en.printResults();
 
     return OK;
 }

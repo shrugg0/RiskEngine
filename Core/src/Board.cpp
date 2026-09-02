@@ -10,8 +10,8 @@
 Board::Board(const std::string& filename) 
 {
     this->fileName = filename;
-    datiBoard.open(filename);
-    if (!datiBoard.is_open())
+    boardData.open(filename);
+    if (!boardData.is_open())
     {
         throw std::runtime_error("File not found -> " + filename);
     }
@@ -40,29 +40,29 @@ void Board::loadData()
 {
     std::string line;
     
-    while (std::getline(datiBoard, line))
+    while (std::getline(boardData, line))
     {
         size_t pos = line.find(':');
 
         std::string node = trim(line.substr(0, pos));
-        std::string adiacenti = line.substr(pos + 1);
+        std::string adjacents = line.substr(pos + 1);
 
-        std::vector<std::string> vicini;
+        std::vector<std::string> neighbors;
 
-        std::stringstream ss(adiacenti);
-        std::string vicino;
+        std::stringstream ss(adjacents);
+        std::string neighbor;
 
-        while (getline(ss, vicino, ',')) {
-            vicini.push_back(trim(vicino));
+        while (getline(ss, neighbor, ',')) {
+            neighbors.push_back(trim(neighbor));
         }
 
-        adjList[node] = vicini;
+        adjList[node] = neighbors;
     }
 }
     
 
 // reference used here : https://en.cppreference.com/cpp/container/map/find
-std::vector<std::string> Board::getVicini(const std::string &state)
+std::vector<std::string> Board::getNeighbors(const std::string &state)
 {
     if (auto search = adjList.find(state) ; search != adjList.end())
     {
@@ -72,7 +72,7 @@ std::vector<std::string> Board::getVicini(const std::string &state)
     }
 }
 
-void Board::printVicini(const std::string &state)
+void Board::printNeighbors(const std::string &state)
 {
     if (auto search = adjList.find(state) ; search != adjList.end())
     {

@@ -7,29 +7,29 @@
 
 #include "GameState.hpp"
 
-struct StatsAttacks
+struct AttackStats
 {
-    Attack atk;
-    double winProb;
+    Attack attack;
+    double winProbability;
 };
 
 class Engine
 {
 private:
-    std::vector<StatsAttacks> results;
+    std::vector<AttackStats> results;
     bool verbose;
     std::chrono::steady_clock::time_point startTime;
 
 public:
     Engine(bool verbose);
 
-    double EvaluateAttack(Attack atk, GameState& gs, int nSim);
+    double evaluateAttack(Attack attack, GameState& gameState, int numSimulations);
 
-    void EvaluateAllAttacks(std::string giocatore, GameState& stato, Board& board, int nSim);
+    void evaluateAllAttacks(std::string player, GameState& gameState, Board& board, int numSimulations);
 
-    std::vector<StatsAttacks> GetResult();
+    std::vector<AttackStats> getResults();
 
-    void PrintResult();
+    void printResults();
 };
 
 #endif

@@ -11,8 +11,8 @@
 GameState::GameState(const std::string &filename)
 {
     this->fileName = filename;
-    dataGame.open(fileName);
-    if (!dataGame.is_open())
+    gameData.open(fileName);
+    if (!gameData.is_open())
     {
         throw std::runtime_error("File not found -> " + fileName);
     }
@@ -49,7 +49,7 @@ void GameState::loadData()
 {
     std::string line;
 
-    while (getline(dataGame, line))
+    while (getline(gameData, line))
     {
         int pos = line.find(':');
 
@@ -62,27 +62,27 @@ void GameState::loadData()
     }
 
 }
-std::vector<std::string> GameState::getListTerrOfPlayer(const std::string &player)
+std::vector<std::string> GameState::getPlayerTerritories(const std::string &player)
 {
-    std::vector<std::string> risultato;
-    for (auto& pair : info)  // stato = la tua map<string, TerritoryState>
+    std::vector<std::string> result;
+    for (auto& pair : info)
     {
         if (pair.second.owner == player)
         {
-            risultato.push_back(pair.first);
+            result.push_back(pair.first);
         }
     }
-    return risultato;
+    return result;
 }
 
 std::vector<Attack> GameState::getPossibleAttacks(const std::string &player, Board &board)
 {
     std::vector<Attack> result;
-    std::vector<std::string> myTerritories = getListTerrOfPlayer(player);
+    std::vector<std::string> myTerritories = getPlayerTerritories(player);
 
     for(std::string terr : myTerritories){
 
-        std::vector<std::string> neighbors = board.getVicini(terr);
+        std::vector<std::string> neighbors = board.getNeighbors(terr);
 
         for(std::string neighbor : neighbors)
         {

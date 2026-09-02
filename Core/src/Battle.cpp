@@ -4,73 +4,73 @@
 
 #include "../include/Army.hpp"
 #include "../include/Battle.hpp"
-#include "../include/Dadi.hpp"
+#include "../include/Dice.hpp"
 
 
-Battle::Battle(Army att, Army dif, bool verbose) : esercito1(att), esercito2(dif), dadoAtk(6,3), dadoDif(6,3), diceCap(2), verbose(verbose) {};
+Battle::Battle(Army att, Army dif, bool verbose) : attackerArmy(att), defenderArmy(dif), attackerDice(6,3), defenderDice(6,3), diceCap(2), verbose(verbose) {};
 
-std::string Battle::simulaRound()
+std::string Battle::simulateRound()
 {
     std::string winner;
-    // Gestione numero dadi, ricalcolato ad ogni turno in base ai carri
-    int diceAtk = std::min(3, esercito1.getTanks() - 1);
-    int diceDif = std::min(diceCap, esercito2.getTanks());
+    // Dice count management, recalculated every round based on available tanks
+    int diceAtk = std::min(3, attackerArmy.getTanks() - 1);
+    int diceDif = std::min(diceCap, defenderArmy.getTanks());
 
-    dadoAtk.setMultiply(diceAtk);
-    dadoDif.setMultiply(diceDif);
-    int atkLoses = 0, difLoses = 0;
+    attackerDice.setDiceCount(diceAtk);
+    defenderDice.setDiceCount(diceDif);
+    int attackerLosses = 0, defenderLosses = 0;
 
-    std::vector vecAtk = dadoAtk.Tira();
-    std::vector vecDif = dadoDif.Tira();
-
-
-    // ordinamento vettori
-    std::sort(vecAtk.begin(), vecAtk.end(), [](int a, int b) { return a > b; });
-    std::sort(vecDif.begin(), vecDif.end(), [](int a, int b) { return a > b; });
+    std::vector attackerRolls = attackerDice.roll();
+    std::vector defenderRolls = defenderDice.roll();
 
 
+    // Sort vectors in descending order
+    std::sort(attackerRolls.begin(), attackerRolls.end(), [](int a, int b) { return a > b; });
+    std::sort(defenderRolls.begin(), defenderRolls.end(), [](int a, int b) { return a > b; });
 
 
-    for (size_t i = 0; i < std::min(vecAtk.size(), vecDif.size()); i++)
+
+
+    for (size_t i = 0; i < std::min(attackerRolls.size(), defenderRolls.size()); i++)
     {
-        if (vecAtk[i] <= vecDif[i])
+        if (attackerRolls[i] <= defenderRolls[i])
         {
-            atkLoses++;
+            attackerLosses++;
         }else{
-            difLoses++;
+            defenderLosses++;
         }
     }
-    esercito1.updateTanks(-atkLoses);
-    esercito2.updateTanks(-difLoses);
+    attackerArmy.updateTanks(-attackerLosses);
+    defenderArmy.updateTanks(-defenderLosses);
 
     if(verbose)
     {
         std::cout << "Attacker:" << std::endl;
-        for (int n : vecAtk)
+        for (int n : attackerRolls)
         {
             std::cout << n << " ";
         }
         std::cout << "\nDefender:" << std::endl;
-        for (int n : vecDif)
+        for (int n : defenderRolls)
         {
             std::cout << n << " ";
         }
 
-        std::cout << "\nLoses attacker's side: " << atkLoses << std::endl;
-        std::cout << "Loses defender's side: " << difLoses << std::endl;
+        std::cout << "\nLosses attacker's side: " << attackerLosses << std::endl;
+        std::cout << "Losses defender's side: " << defenderLosses << std::endl;
 
-        std::cout << "Tanks left on the attacker's territory :" << esercito1.getTanks() << std::endl;
-        std::cout << "Tanks left on the defender's territory :" << esercito2.getTanks() << std::endl;
+        std::cout << "Tanks left on the attacker's territory :" << attackerArmy.getTanks() << std::endl;
+        std::cout << "Tanks left on the defender's territory :" << defenderArmy.getTanks() << std::endl;
     }
 
 
 
 
-    if (atkLoses > difLoses)
+    if (attackerLosses > defenderLosses)
     {
-        winner = esercito2.getPlayer();
-    }else if (atkLoses < difLoses){
-        winner = esercito1.getPlayer();
+        winner = defenderArmy.getPlayer();
+    }else if (attackerLosses < defenderLosses){
+        winner = attackerArmy.getPlayer();
     }else{
         winner = "Tie";
     }
@@ -88,12 +88,12 @@ void Battle::setDiceCap()
     this->diceCap = newCap;
 }
 
-int Battle::getAtkTanks()
+int Battle::getAttackerTanks()
 {
-    return esercito1.getTanks();
+    return attackerArmy.getTanks();
 }
 
-int Battle::getDifTanks()
+int Battle::getDefenderTanks()
 {
-    return esercito2.getTanks();
+    return defenderArmy.getTanks();
 }

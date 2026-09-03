@@ -25,13 +25,13 @@ std::string Battle::simulateRound()
 
 
     // Sort vectors in descending order
-    std::sort(attackerRolls.begin(), attackerRolls.end(), [](int a, int b) { return a > b; });
-    std::sort(defenderRolls.begin(), defenderRolls.end(), [](int a, int b) { return a > b; });
+    std::sort(attackerRolls.begin(), attackerRolls.begin() + diceAtk, [](int a, int b) { return a > b; });
+    std::sort(defenderRolls.begin(), defenderRolls.begin() + diceDif, [](int a, int b) { return a > b; });
 
 
 
 
-    for (size_t i = 0; i < std::min(attackerRolls.size(), defenderRolls.size()); i++)
+    for (size_t i = 0; i < std::min(diceAtk, diceDif); i++)
     {
         if (attackerRolls[i] <= defenderRolls[i])
         {
@@ -46,14 +46,14 @@ std::string Battle::simulateRound()
     if(verbose)
     {
         std::cout << "Attacker:" << std::endl;
-        for (int n : attackerRolls)
+        for (int z = 0; z < diceAtk ; z++)
         {
-            std::cout << n << " ";
+            std::cout << attackerRolls[z] << " ";
         }
         std::cout << "\nDefender:" << std::endl;
-        for (int n : defenderRolls)
+        for (int z = 0; z < diceDif ; z++)
         {
-            std::cout << n << " ";
+            std::cout << defenderRolls[z] << " ";
         }
 
         std::cout << "\nLosses attacker's side: " << attackerLosses << std::endl;

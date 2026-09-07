@@ -23,9 +23,9 @@ private:
 public:
     Engine(bool verbose);
 
-    double evaluateAttack(Attack attack, GameState& gameState, int numSimulations);
+    double evaluateAttack(const Attack& attack,const GameState& gameState, int numSimulations);
 
-    void evaluateAllAttacks(std::string player, GameState& gameState, Board& board, int numSimulations);
+    void evaluateAllAttacks(const std::string& player, const GameState& gameState, const Board& board, int numSimulations);
 
     std::vector<AttackStats> getResults() const;
 

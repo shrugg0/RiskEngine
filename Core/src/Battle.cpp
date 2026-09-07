@@ -7,7 +7,7 @@
 #include "../include/Dice.hpp"
 
 
-Battle::Battle(Army att, Army dif, bool verbose) : attackerArmy(att), defenderArmy(dif), attackerDice(6,3), defenderDice(6,3), diceCap(2), verbose(verbose) {};
+Battle::Battle(const Army& att, const Army& dif, bool verbose) : attackerArmy(att), defenderArmy(dif), attackerDice(6,3), defenderDice(6,3), diceCap(2), verbose(verbose) {};
 
 std::string Battle::simulateRound()
 {

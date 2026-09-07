@@ -11,7 +11,7 @@
 
 Engine::Engine(bool verbose) : verbose(verbose), startTime(std::chrono::steady_clock::now()) {};
 
-double Engine::evaluateAttack(Attack attack, GameState &gameState, int numSimulations)
+double Engine::evaluateAttack(const Attack& attack, const GameState &gameState, int numSimulations)
 {
     Army atk(gameState.getOwner(attack.from), gameState.getTanks(attack.from));
     Army dif(gameState.getOwner(attack.to), gameState.getTanks(attack.to));
@@ -22,12 +22,12 @@ double Engine::evaluateAttack(Attack attack, GameState &gameState, int numSimula
     return mc.getWinRate();
 }
 
-void Engine::evaluateAllAttacks(std::string player, GameState &gameState, Board &board, int numSimulations)
+void Engine::evaluateAllAttacks(const std::string& player, const GameState &gameState, const Board &board, int numSimulations)
 {
     results.clear();
     std::vector<Attack> attacks = gameState.getPossibleAttacks(player, board);
 
-    for (Attack a : attacks)
+    for (const Attack& a : attacks)
     {
         double prob = evaluateAttack(a, gameState, numSimulations);
         results.push_back({a, prob});
@@ -40,9 +40,9 @@ std::vector<AttackStats> Engine::getResults() const
 
 void Engine::printResults()
 {
-    std::sort(results.begin(), results.end(), [](const AttackStats a, const AttackStats b){ return a.winProbability > b.winProbability;});
-    for(AttackStats sa : results){
-        std::cout << "Attacking from " << sa.attack.from << " the territory " << sa.attack.to << " you have a " << sa.winProbability << "% of winning" << std::endl;
+    std::sort(results.begin(), results.end(), [](const AttackStats& a, const AttackStats& b){ return a.winProbability > b.winProbability;});
+    for(const AttackStats& as : results){
+        std::cout << "Attacking from " << as.attack.from << " the territory " << as.attack.to << " you have a " << as.winProbability << "% of winning" << std::endl;
     }
     auto endTime = std::chrono::steady_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime);

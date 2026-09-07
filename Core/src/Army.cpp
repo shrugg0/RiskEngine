@@ -2,7 +2,7 @@
 #include <string>
 
 
-Army::Army(std::string player, int tanks) : player(player), tanks(tanks) {}
+Army::Army(const std::string& player, int tanks) : player(player), tanks(tanks) {}
 
 std::string Army::getPlayer() const
 {

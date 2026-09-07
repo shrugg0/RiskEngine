@@ -13,7 +13,7 @@ private:
     std::vector<std::string> territories;
 
 public:
-    Army(std::string player, int tanks);
+    Army(const std::string& player, int tanks);
 
     // Getters
     std::string getPlayer() const;

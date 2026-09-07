@@ -7,7 +7,7 @@
 
 #include "../include/Board.hpp"
 
-Board::Board(const std::string& filename) 
+Board::Board(const std::string& filename)
 {
     this->fileName = filename;
     boardData.open(filename);
@@ -39,7 +39,7 @@ void Board::printBoard() const {
 void Board::loadData()
 {
     std::string line;
-    
+
     while (std::getline(boardData, line))
     {
         size_t pos = line.find(':');
@@ -59,7 +59,7 @@ void Board::loadData()
         adjList[node] = neighbors;
     }
 }
-    
+
 
 // reference used here : https://en.cppreference.com/cpp/container/map/find
 std::vector<std::string> Board::getNeighbors(const std::string &state) const

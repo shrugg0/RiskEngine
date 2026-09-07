@@ -5,7 +5,7 @@
 #include "../include/MonteCarlo.hpp"
 
 
-MonteCarlo::MonteCarlo(Army atk, Army dif, int n, bool verbose) : attackerArmy(atk), defenderArmy(dif), simulations(n), verbose(verbose) {};
+MonteCarlo::MonteCarlo(const Army& atk, const Army& dif, int n, bool verbose) : attackerArmy(atk), defenderArmy(dif), simulations(n), verbose(verbose) {};
 
 std::string MonteCarlo::simulateBattle()
 {

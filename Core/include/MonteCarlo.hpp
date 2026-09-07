@@ -15,7 +15,7 @@ private:
     bool verbose;
     std::map<std::string, int> stats;
 public:
-    MonteCarlo(Army atk, Army dif, int n, bool verbose);
+    MonteCarlo(const Army& atk, const Army& dif, int n, bool verbose);
 
     std::string simulateBattle();
 

@@ -82,11 +82,11 @@ std::vector<Attack> GameState::getPossibleAttacks(const std::string &player, con
     std::vector<Attack> result;
     std::vector<std::string> myTerritories = getPlayerTerritories(player);
 
-    for(std::string terr : myTerritories){
+    for(const std::string& terr : myTerritories){
 
         std::vector<std::string> neighbors = board.getNeighbors(terr);
 
-        for(std::string neighbor : neighbors)
+        for(const std::string& neighbor : neighbors)
         {
             if(getOwner(neighbor) != player)
             {

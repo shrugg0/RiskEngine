@@ -16,7 +16,7 @@ private:
     int diceCap = 3;
     bool verbose;
 public:
-    Battle(Army att, Army dif, bool verbose);
+    Battle(const Army& att, const Army& dif, bool verbose);
 
     std::string simulateRound();
 

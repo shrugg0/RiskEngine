@@ -1,0 +1,158 @@
+{
+  "Assets/MakarovChain/RiskProbability.cpp": {
+    "mtime": 1787419219.004911,
+    "seen": 1790105896.9276097,
+    "ast_hash": "525ba26eaf2b3b55d774ec493ddcacdc",
+    "semantic_hash": "525ba26eaf2b3b55d774ec493ddcacdc"
+  },
+  "Assets/MakarovChain/RiskProbability.hpp": {
+    "mtime": 1787419219.004911,
+    "seen": 1790105896.9276328,
+    "ast_hash": "d3e9fa53da57a7ae9a28b4bab7c88f6e",
+    "semantic_hash": "d3e9fa53da57a7ae9a28b4bab7c88f6e"
+  },
+  "Assets/MakarovChain/main.cpp": {
+    "mtime": 1787419219.004911,
+    "seen": 1790105896.9276435,
+    "ast_hash": "cc6e66e84cd0ced16283eac7e504e385",
+    "semantic_hash": "cc6e66e84cd0ced16283eac7e504e385"
+  },
+  "include/Army.hpp": {
+    "mtime": 1788809674.875536,
+    "seen": 1790105896.9276497,
+    "ast_hash": "d84828991e1657a4e7968cfb03951451",
+    "semantic_hash": "d84828991e1657a4e7968cfb03951451"
+  },
+  "include/Battle.hpp": {
+    "mtime": 1788809738.825818,
+    "seen": 1790105896.9276555,
+    "ast_hash": "ad690c54d1a9e023f93eb4eaf45eb8ff",
+    "semantic_hash": "ad690c54d1a9e023f93eb4eaf45eb8ff"
+  },
+  "include/Board.hpp": {
+    "mtime": 1788809488.7456737,
+    "seen": 1790105896.9276607,
+    "ast_hash": "c0170c0ce3e072abe1ee7e42f4fef94d",
+    "semantic_hash": "c0170c0ce3e072abe1ee7e42f4fef94d"
+  },
+  "include/Dice.hpp": {
+    "mtime": 1788357379.866871,
+    "seen": 1790105896.9276664,
+    "ast_hash": "19f183160cb6f780883507d3a8abfceb",
+    "semantic_hash": "19f183160cb6f780883507d3a8abfceb"
+  },
+  "include/Engine.hpp": {
+    "mtime": 1788809924.9716387,
+    "seen": 1790105896.9276712,
+    "ast_hash": "92c76e1ba0322305fad2105ab89a5ed4",
+    "semantic_hash": "92c76e1ba0322305fad2105ab89a5ed4"
+  },
+  "include/GameState.hpp": {
+    "mtime": 1788351278.9798362,
+    "seen": 1790105896.927676,
+    "ast_hash": "82720e6f5277f1feb657eb231e79479b",
+    "semantic_hash": "82720e6f5277f1feb657eb231e79479b"
+  },
+  "include/MonteCarlo.hpp": {
+    "mtime": 1788809806.5001163,
+    "seen": 1790105896.9276803,
+    "ast_hash": "9a83e8c1d33de00034ddd474bb3c89b4",
+    "semantic_hash": "9a83e8c1d33de00034ddd474bb3c89b4"
+  },
+  "main.cpp": {
+    "mtime": 1788349626.8402028,
+    "seen": 1790105896.927685,
+    "ast_hash": "cbbfe10ea62ba38ca7ddda7cedbc98bc",
+    "semantic_hash": "cbbfe10ea62ba38ca7ddda7cedbc98bc"
+  },
+  "src/Army.cpp": {
+    "mtime": 1788809707.924806,
+    "seen": 1790105896.9276907,
+    "ast_hash": "7cc6e219d13d980320e6645f17c029b3",
+    "semantic_hash": "7cc6e219d13d980320e6645f17c029b3"
+  },
+  "src/Battle.cpp": {
+    "mtime": 1788809780.1290002,
+    "seen": 1790105896.927695,
+    "ast_hash": "8b1cc2680975024c608f9dce2434768a",
+    "semantic_hash": "8b1cc2680975024c608f9dce2434768a"
+  },
+  "src/Board.cpp": {
+    "mtime": 1788809483.465649,
+    "seen": 1790105896.9277,
+    "ast_hash": "395abc6390dead6a506b37761d26dcab",
+    "semantic_hash": "395abc6390dead6a506b37761d26dcab"
+  },
+  "src/Dice.cpp": {
+    "mtime": 1788357485.316985,
+    "seen": 1790105896.927705,
+    "ast_hash": "548060a0ac5641c4b7c8b4bbe44860f9",
+    "semantic_hash": "548060a0ac5641c4b7c8b4bbe44860f9"
+  },
+  "src/Engine.cpp": {
+    "mtime": 1788810110.957456,
+    "seen": 1790105896.92771,
+    "ast_hash": "3e300de917db2e5f0fd11a851ffea894",
+    "semantic_hash": "3e300de917db2e5f0fd11a851ffea894"
+  },
+  "src/GameState.cpp": {
+    "mtime": 1788810166.2046988,
+    "seen": 1790105896.927737,
+    "ast_hash": "6e97b8e620f1f603de66335d57eced15",
+    "semantic_hash": "6e97b8e620f1f603de66335d57eced15"
+  },
+  "src/MonteCarlo.cpp": {
+    "mtime": 1788809852.9503212,
+    "seen": 1790105896.927742,
+    "ast_hash": "83b028f5bb4e71fcf29eb7f0dc47d2ac",
+    "semantic_hash": "83b028f5bb4e71fcf29eb7f0dc47d2ac"
+  },
+  "Assets/Board.txt": {
+    "mtime": 1787419218.9976199,
+    "seen": 1790105896.9277468,
+    "ast_hash": "fe62469dfa513cab07c9991b38f13fa9",
+    "semantic_hash": "fe62469dfa513cab07c9991b38f13fa9"
+  },
+  "Assets/MakarovChain/README.md": {
+    "mtime": 1787419219.003911,
+    "seen": 1790105896.9277515,
+    "ast_hash": "8e757b93c56c9c7fa5f2ae69c19318b9",
+    "semantic_hash": "8e757b93c56c9c7fa5f2ae69c19318b9"
+  },
+  "Assets/dataGame.txt": {
+    "mtime": 1787419219.011911,
+    "seen": 1790105896.9277568,
+    "ast_hash": "65e4acd9fcd49240f938ef44c32f4f6e",
+    "semantic_hash": "65e4acd9fcd49240f938ef44c32f4f6e"
+  },
+  "Assets/LogoReadme.png": {
+    "mtime": 1787419219.003911,
+    "seen": 1790105896.9277613,
+    "ast_hash": "bd19714a2c36056dc4c7cecc224d5329",
+    "semantic_hash": "bd19714a2c36056dc4c7cecc224d5329"
+  },
+  "Assets/Prob.png": {
+    "mtime": 1787419219.009911,
+    "seen": 1790105896.9277675,
+    "ast_hash": "2b63bb053c896f10118275c6ab922b6f",
+    "semantic_hash": "2b63bb053c896f10118275c6ab922b6f"
+  },
+  "Assets/Risk_game_board..png": {
+    "mtime": 1787419219.011911,
+    "seen": 1790105896.9277725,
+    "ast_hash": "fdb0d5707a51281e037007f00e5918c8",
+    "semantic_hash": "fdb0d5707a51281e037007f00e5918c8"
+  },
+  "Assets/architecture_schema.svg": {
+    "mtime": 1788808454.7867866,
+    "seen": 1790105896.9277773,
+    "ast_hash": "4b240736c7aa90e01b230034f51ebd97",
+    "semantic_hash": "4b240736c7aa90e01b230034f51ebd97"
+  },
+  "Assets/diagram.png": {
+    "mtime": 1789671227.075772,
+    "seen": 1790105896.9277818,
+    "ast_hash": "628ba444386205279e838d38e7bd2f98",
+    "semantic_hash": "628ba444386205279e838d38e7bd2f98"
+  }
+}

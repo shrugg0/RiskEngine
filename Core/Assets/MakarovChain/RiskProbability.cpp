@@ -1,9 +1,10 @@
 #include "RiskProbability.hpp"
 #include <algorithm>
+#define MAXTANKS 201
 
 RiskProbability::RiskProbability() {
-    memo.assign(201, std::vector<double>(201,0.0));
-    computed.assign(201, std::vector<bool>(201,false));
+    memo.assign(MAXTANKS, std::vector<double>(MAXTANKS,0.0));
+    computed.assign(MAXTANKS, std::vector<bool>(MAXTANKS,false));
 
     transitions[{3,2}]={{2,0,0.292566},{1,1,0.335777},{0,2,0.371657}};
     transitions[{3,1}]={{1,0,0.340278},{0,1,0.659722}};

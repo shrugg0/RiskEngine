@@ -6,30 +6,27 @@
 #include "../include/GameState.hpp"
 #include "../include/Board.hpp"
 #include "../include/Engine.hpp"
-#include "../include/Army.hpp"
-#include "../include/MonteCarlo.hpp"
+#include "../include/RiskProbability.hpp"
 
-Engine::Engine(bool verbose) : verbose(verbose), startTime(std::chrono::steady_clock::now()) {};
+Engine::Engine() : startTime(std::chrono::steady_clock::now()) {};
 
-double Engine::evaluateAttack(const Attack& attack, const GameState &gameState, int numSimulations)
+double Engine::evaluateAttack(const Attack& attack, const GameState &gameState)
 {
-    Army atk(gameState.getOwner(attack.from), gameState.getTanks(attack.from));
-    Army dif(gameState.getOwner(attack.to), gameState.getTanks(attack.to));
+    int atkCount = gameState.getTanks(attack.from);
+    int defCount = gameState.getTanks(attack.to);
 
-    MonteCarlo mc(atk, dif, numSimulations, verbose);
-    mc.runSimulations();
-
-    return mc.getWinRate();
+    RiskProbability markov;
+    return markov.winProbability(atkCount, defCount) * 100.0;
 }
 
-void Engine::evaluateAllAttacks(const std::string& player, const GameState &gameState, const Board &board, int numSimulations)
+void Engine::evaluateAllAttacks(const std::string& player, const GameState &gameState, const Board &board)
 {
     results.clear();
     std::vector<Attack> attacks = gameState.getPossibleAttacks(player, board);
 
     for (const Attack& a : attacks)
     {
-        double prob = evaluateAttack(a, gameState, numSimulations);
+        double prob = evaluateAttack(a, gameState);
         results.push_back({a, prob});
     }
 }

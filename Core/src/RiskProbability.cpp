@@ -1,4 +1,4 @@
-#include "RiskProbability.hpp"
+#include "../include/RiskProbability.hpp"
 #include <algorithm>
 #define MAXTANKS 201
 

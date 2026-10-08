@@ -37,7 +37,7 @@ The engine is a single translation unit with no external dependencies. Build and
 
 ```bash
 cd Core
-g++ -std=c++17 main.cpp src/*.cpp -o risk_engine -I./include
+g++ -std=c++17 main.cpp src/*.cpp -o bin/risk_engine -I./include
 ./risk_engine        # will prompt for simulation count per battle
 ```
 

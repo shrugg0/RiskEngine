@@ -9,7 +9,7 @@ Given full board state — players, territories, tanks per territory, and adjace
 
 ---
 
-## ⚡ Performance Benchmark: Monte Carlo vs Markov Chains
+## Performance Benchmark: Monte Carlo vs Markov Chains
 
 The shift from empirical stochastic simulation (**Monte Carlo**) to analytical resolution (**Markov Chains**) led to an enormous performance leap, replacing random number generation and repeated dice rolling with exact, memoized state evaluations:
 
@@ -20,7 +20,7 @@ The shift from empirical stochastic simulation (**Monte Carlo**) to analytical r
 | Monte Carlo (v1.0) | 100,000 | 7,699 ms | ~405.2x slower | **+40,421.05% faster** |
 | Monte Carlo (v1.0) | 1,000,000 | 84,639 ms (~1.4 min) | ~4,454.7x slower | **+445,368.42% faster** |
 
-> [!TIP]
+> [!Tip]
 > While Monte Carlo requires exponentially more iterations and CPU time to converge towards true probabilities, the **Markov Chain model calculates the exact mathematical probability in just 19 ms**, eliminating variance and making real-time analysis instant.
 
 ---
@@ -84,7 +84,8 @@ RiskEngine/
 ---
 
 ## READ CAREFULLY
-This project was created for educational purposes. It currently uses data loaded from `.txt` files. In the current build the analyzed player is set in `Core/main.cpp` (CLI parameter selection is coming in the next update). The engine uses standard international rules (attacker rolls up to 3 dice, defender up to 2 dice, defender wins ties).
+This project was created for educational purposes. It currently uses data loaded from `.txt` files.
+The engine uses standard international rules (attacker rolls up to 3 dice, defender up to 2 dice, defender wins ties).
 
 A planned Python computer vision module will allow extracting the game state directly from a photograph of a physical board.
 

@@ -35,8 +35,9 @@ std::vector<AttackStats> Engine::getResults() const
     return results;
 }
 
-void Engine::printResults()
+void Engine::printResults(std::string& player)
 {
+    std::cout << "Analysis for player \"" << player << "\":\n\n";
     std::sort(results.begin(), results.end(), [](const AttackStats& a, const AttackStats& b){ return a.winProbability > b.winProbability;});
     for(const AttackStats& as : results){
         std::cout << "Attacking from " << as.attack.from << " the territory " << as.attack.to << " you have a " << as.winProbability << "% of winning" << std::endl;

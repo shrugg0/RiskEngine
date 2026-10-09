@@ -28,7 +28,7 @@ public:
 
     std::vector<AttackStats> getResults() const;
 
-    void printResults();
+    void printResults(std::string& player);
 };
 
 #endif

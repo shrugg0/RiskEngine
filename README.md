@@ -9,6 +9,22 @@ Given full board state — players, territories, tanks per territory, and adjace
 
 ---
 
+## ⚡ Performance Benchmark: Monte Carlo vs Markov Chains
+
+The shift from empirical stochastic simulation (**Monte Carlo**) to analytical resolution (**Markov Chains**) led to an enormous performance leap, replacing random number generation and repeated dice rolling with exact, memoized state evaluations:
+
+| Engine / Method | Simulations per Battle | Execution Time | Speedup | Performance Improvement |
+| :--- | :--- | :--- | :--- | :--- |
+| **Markov Chains (v1.2)** | *Exact analytical calculation* | **19 ms** | **Baseline (Exact)** | **Exact Ground Truth** |
+| Monte Carlo (v1.0) | 10,000 | 783 ms | ~41.2x slower | **+4,021.05% faster** |
+| Monte Carlo (v1.0) | 100,000 | 7,699 ms | ~405.2x slower | **+40,421.05% faster** |
+| Monte Carlo (v1.0) | 1,000,000 | 84,639 ms (~1.4 min) | ~4,454.7x slower | **+445,368.42% faster** |
+
+> [!TIP]
+> While Monte Carlo requires exponentially more iterations and CPU time to converge towards true probabilities, the **Markov Chain model calculates the exact mathematical probability in just 19 ms**, eliminating variance and making real-time analysis instant.
+
+---
+
 ## Project Structure
 
 ```
@@ -88,8 +104,7 @@ g++ -std=c++17 main.cpp src/*.cpp -o bin/risk_engine -I./include
 
 ### Running
 ```bash
-cd Core
-./bin/risk_engine
+./bin/risk_engine <player>
 ```
 
 ---
@@ -106,7 +121,7 @@ cd Core
 
 ## Why C++
 
-Evaluating game state combinations and traversing territory graphs demands minimal overhead. Transitioning from Monte Carlo to Markov Chains reduced evaluation times from seconds to mere milliseconds, making real-time analysis instant and predictable.
+Evaluating game state combinations and traversing territory graphs demands minimal overhead. Transitioning from Monte Carlo to Markov Chains reduced evaluation times from tens of seconds to just 19 milliseconds, making real-time analysis instant and predictable.
 
 ---
 

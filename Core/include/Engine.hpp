@@ -1,33 +1,34 @@
 #ifndef ENGINE_HPP
 #define ENGINE_HPP
 
-#include <iostream>
 #include <vector>
-#include <map>
 #include <string>
-#include <fstream>
+#include <chrono>
 
 #include "GameState.hpp"
 
-struct StatsAttacks
+struct AttackStats
 {
-    Attack atk;
-    double winProb;
+    Attack attack;
+    double winProbability;
 };
 
 class Engine
 {
 private:
-    std::vector<StatsAttacks> results;  
-    
+    std::vector<AttackStats> results;
+    std::chrono::steady_clock::time_point startTime;
+
 public:
-    double EvaluateAttack(Attack atk, GameState& gs, int nSim);
+    Engine();
 
-    void EvaluateAllAttacks(std::string giocatore, GameState& stato, Board& board, int nSim);
+    double evaluateAttack(const Attack& attack,const GameState& gameState);
 
-    std::vector<StatsAttacks> GetResult();
+    void evaluateAllAttacks(const std::string& player, const GameState& gameState, const Board& board);
 
-    void PrintResult(); 
+    std::vector<AttackStats> getResults() const;
+
+    void printResults(std::string& player);
 };
 
 #endif

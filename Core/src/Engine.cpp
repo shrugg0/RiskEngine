@@ -1,48 +1,48 @@
 #include <iostream>
 #include <vector>
-#include <map>
 #include <string>
-#include <fstream>
-#include <sstream>
+#include <algorithm>
 
 #include "../include/GameState.hpp"
 #include "../include/Board.hpp"
 #include "../include/Engine.hpp"
-#include "../include/Army.hpp"
-#include "../include/MonteCarlo.hpp"
+#include "../include/RiskProbability.hpp"
 
+Engine::Engine() : startTime(std::chrono::steady_clock::now()) {};
 
-double Engine::EvaluateAttack(Attack atkStruct, GameState &gs, int nSim)
+double Engine::evaluateAttack(const Attack& attack, const GameState &gameState)
 {
-    Army atk(gs.getOwner(atkStruct.from), gs.getTanks(atkStruct.from));
-    Army dif(gs.getOwner(atkStruct.to), gs.getTanks(atkStruct.to));
+    int atkCount = gameState.getTanks(attack.from);
+    int defCount = gameState.getTanks(attack.to);
 
-    MonteCarlo mc(atk,dif,nSim);
-    mc.RunnaSimulazioni();
-
-    return mc.getWinRate();
+    RiskProbability markov;
+    return markov.winProbability(atkCount, defCount) * 100.0;
 }
 
-void Engine::EvaluateAllAttacks(std::string giocatore, GameState &stato, Board &board, int nSim)
+void Engine::evaluateAllAttacks(const std::string& player, const GameState &gameState, const Board &board)
 {
     results.clear();
-    std::vector<Attack> attacchi = stato.getPossibleAttacks(giocatore, board);
-    
-    for (Attack a : attacchi)
+    std::vector<Attack> attacks = gameState.getPossibleAttacks(player, board);
+
+    for (const Attack& a : attacks)
     {
-        double prob = EvaluateAttack(a, stato, nSim);
+        double prob = evaluateAttack(a, gameState);
         results.push_back({a, prob});
     }
 }
-std::vector<StatsAttacks> Engine::GetResult()
+std::vector<AttackStats> Engine::getResults() const
 {
     return results;
 }
 
-void Engine::PrintResult()
+void Engine::printResults(std::string& player)
 {
-    std::sort(results.begin(), results.end(), [](const StatsAttacks a, const StatsAttacks b){ return a.winProb > b.winProb;});
-    for(StatsAttacks sa : results){
-        std::cout << "Attacking from  " << sa.atk.from << " the territory " << sa.atk.to << " you have a  " << sa.winProb << "% of winning" << std::endl;
+    std::cout << "Analysis for player \"" << player << "\":\n\n";
+    std::sort(results.begin(), results.end(), [](const AttackStats& a, const AttackStats& b){ return a.winProbability > b.winProbability;});
+    for(const AttackStats& as : results){
+        std::cout << "Attacking from " << as.attack.from << " the territory " << as.attack.to << " you have a " << as.winProbability << "% of winning" << std::endl;
     }
+    auto endTime = std::chrono::steady_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(endTime - startTime);
+    std::cout << "\nEvaluation done in: " << duration.count() << " ms" << std::endl;
 }

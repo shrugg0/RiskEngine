@@ -1,34 +1,55 @@
-#define OK 0
-#define FAILURE 1
-
 #include <iostream>
 #include <string>
+#include <vector>
+#include <cctype>
 
-#include "include/MonteCarlo.hpp"
 #include "include/GameState.hpp"
 #include "include/Board.hpp"
 #include "include/Engine.hpp"
-#include "include/Battle.hpp"
 
-int main(void)
+#define OK 0
+#define FAILURE 1
+
+int main(int argc, char *argv[])
 {
+    if (argc != 2) {
+        std::cerr << argv[0] << ": Bad usage\n Try '" << argv[0] << " <player>' (Red, Blue, Yellow, Green, Black, Purple)\n";
+        return FAILURE;
+    }
+
+    std::string inputPlayer = argv[1];
+    if (!inputPlayer.empty()) {
+        inputPlayer[0] = std::toupper(static_cast<unsigned char>(inputPlayer[0]));
+        for (size_t i = 1; i < inputPlayer.size(); ++i) {
+            inputPlayer[i] = std::tolower(static_cast<unsigned char>(inputPlayer[i]));
+        }
+    }
+
+    std::vector<std::string> validPlayers = {"Red", "Yellow", "Blue", "Green", "Black", "Purple"};
+
+    bool found = false;
+    for (const std::string& p : validPlayers) {
+        if (p == inputPlayer) {
+            found = true;
+            break;
+        }
+    }
+
+    if (!found) {
+        std::cerr << "Error: Player '" << argv[1] << "' does not exist.\n";
+        return FAILURE;
+    }
 
     Board board("Assets/Board.txt");
     GameState gs("Assets/dataGame.txt");
     Engine en;
 
-    std::string player = "Red";
-    int nSim;
-
     board.loadData();
     gs.loadData();
 
-    std::cout << "How many simulation for each battle ( state vs state, 10000 recommended ): ";
-    std::cin >> nSim;
-
-    en.EvaluateAllAttacks(player, gs, board, nSim);
+    en.evaluateAllAttacks(inputPlayer, gs, board);
     std::cout << "\n\n";
-    en.PrintResult();
-    
+    en.printResults(inputPlayer);
+
     return OK;
 }
